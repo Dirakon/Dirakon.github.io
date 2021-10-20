@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import ProjectList from "./components/ProjectList";
+import SingularProject from "./components/SingularProject";
+import './styles/App.css'
 function App() {
+  const [projects,setProjects] = useState([
+    {title : "Scion", description : "App for programming on mobile devices with my custom visual programming language"},
+    {title : "The Branch Office", description : "Game made in a week about managin workers and not letting the office fall from the branch"},
+    {title : "Mobile Continent Generator", description : "Mobile app that lets the user observe some randomly generated worlds and nations"},
+    {title : "DialogEditor", description : "Website for creating and experiencing dialogs with my custom dialog language"}
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProjectList projects = {projects} title = "MY PROJECTS"/>
     </div>
   );
 }
