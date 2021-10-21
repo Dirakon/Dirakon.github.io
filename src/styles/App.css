@@ -10,14 +10,34 @@
 }
 
 .App{
-    width: 800px;
+    
+    text-align: center;
     align-items: center;
+    width: 94%;
 }
-
+.projectTitle{
+    font-size: 2vw;
+    line-height: 1vw;
+}
+.projectDescription{
+    font-size: 1.5vw;
+    line-height: 1vw;
+}
 .project{
-    padding: 15px;
+    margin: 0 auto;
+    text-align: left;
+    width: 80%;
+    aspect-ratio: 8/1;
+    display: flex;
+    padding: 5px;
     border: 2px solid;
     margin-top: 15px;
     justify-content: space-between;
     align-items: center;
+    background-color: purple;
+    transition-duration: 250ms;
+}
+.project:hover{
+    background-color: white;
+    width: 88%;
 }
