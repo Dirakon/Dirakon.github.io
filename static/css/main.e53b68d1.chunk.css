@@ -1,0 +1,2 @@
+*{margin:0;padding:0;box-sizing:border-box}#root{display:flex;justify-content:center}.App{text-align:center;align-items:center;width:94%}.projectTitle{font-size:2vw;line-height:1vw}.projectDescription{font-size:1.5vw;line-height:1vw}.project{text-align:left;width:80%;aspect-ratio:8/1;display:flex;padding:5px;border:2px solid;margin:15px auto 0;justify-content:space-between;align-items:center;background-color:purple;transition-duration:.25s}.project:hover{background-color:#fff;width:88%}
+/*# sourceMappingURL=main.e53b68d1.chunk.css.map */
