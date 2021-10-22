@@ -39,17 +39,27 @@
     text-shadow: 0 0 0.3vw white;
     font-size: 1.5vw;
 }
+
+
+
+
 .projectFather{
     height: auto;
     position: relative;
 }
+
+
+
+
+
+
 .project{
 
     position: relative;
     display: flex;
     margin: 0 auto;
     text-align: left;
-    width: 80%;
+    width: 88%;
     aspect-ratio: 8/1;
     margin-top: 15px;
     justify-content: space-between;
@@ -59,12 +69,20 @@
     margin-top: 15px;
     transition-duration: 250ms;
 }
+.collapsed .project{
+    width: 80%;
+}
+.project:hover{
+    width: 88%;
+
+}
+
 
 .projectImage {
 
     width: 100%;
     
-    border: 2px solid black;
+    border: 4px solid black;
     aspect-ratio: 8/1;
 
     align-self: center;
@@ -78,32 +96,55 @@
     z-index: -1;
     transition-duration: 250ms;
     transition-property: all;
-    opacity: 0.7;
+    opacity: 1;
   }
+  .collapsed .project .projectImage{
+    opacity: 0.7;
+      border: 2px solid black;
+  }
+  .project:hover .projectImage{
+    opacity: 1;
+    border: 4px solid black;
+  }
+
+
+
+
   .theRealProject{
       overflow: hidden;
       margin: 0 auto;
       background-color: red;
-    z-index: -2;
-      max-height: 0;
-      transition: max-height 0.4s linear;
+      text-align: left;
+      width: 80%;
+      z-index: -2;
+      margin-bottom: 0;
+      max-height: 1000000px;
+      transition: margin-bottom 0.3s cubic-bezier(0, 0, 0, 1);
   }
-  .expanded .theRealProject{
-  transform-origin: top left;
-      max-height: 1000px;
+  .collapsed .theRealProjectWrapper .theRealProject{
+    margin-bottom: -2000px;
+    transition: margin-bottom 0.3s cubic-bezier(1, 0, 1, 1),
+                visibility 0s 0.3s, max-height 0s 0.3s;
+    visibility: hidden;
+    max-height: 0;
   }
-.project:hover .projectImage{
-    opacity: 1;
-    border: 4px solid black;
-}
-.expanded .project .projectImage{
-    opacity: 1;
-    border: 4px solid black;
-}
-.project:hover{
-    width: 88%;
 
-}
-.expanded .project{
-    width: 88%;
-}
+
+
+
+  .theRealProjectWrapper{  
+      display: flex;
+      overflow: hidden;
+  }
+  .theRealProjectWrapper:after {
+    content: '';
+    height: 50px;
+    transition: height 0.3s linear, max-height 0s 0.3s linear;
+    max-height: 0px;
+  }
+  .collapsed .theRealProjectWrapper:after{
+
+    height: 0;
+    transition: height 0.3s linear;
+    max-height: 50px;
+  }

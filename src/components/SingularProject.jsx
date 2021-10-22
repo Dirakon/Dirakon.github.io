@@ -2,23 +2,15 @@ import React, { useState } from "react";
 import image from './../images/airship.jpg'
 import './../styles/App.css'
 const SingularProject = function (props) {
-    let isCurExpanded = false;
     let clickFunc = function (arg) {
         arg = arg.target
         while (!arg.className.startsWith('projectFather')) {
             arg = arg.parentNode;
         }
-        arg.classList.toggle("expanded")
-        /*
-        if (isCurExpanded){
-            collapceFunc(arg);
-        }else{
-            expandFunc(arg);
-        }*/
-        isCurExpanded = ! isCurExpanded;
+        arg.classList.toggle("collapsed")
     }
 
-    let obj = <div className="projectFather">
+    let obj = <div className="projectFather collapsed">
         < div className="project" onClick={clickFunc}>
             <img className="projectImage" src={props.image} />
             <div className="total">
@@ -28,13 +20,16 @@ const SingularProject = function (props) {
             </div>
         </div>
         <div className="theRealProjectWrapper">
-        <div className="theRealProject">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
+            <div className="theRealProject">
+                <a>asdasdasd</a>
+                <br />
+                <br />
+                <br />
+                <a>asdasdasd</a>
+                <br />
+                <br />
+                <a>asdasdasd</a>
+            </div>
         </div>
     </div>
 
