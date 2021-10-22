@@ -7,7 +7,7 @@ const ProjectList = function (props) {
             {props.title}
         </h1>
         {props.projects.map((project, index) =>
-            <SingularProject title={project.title} description={project.description} key={index} />
+            <SingularProject title={project.title} description={project.description} image = {project.image} key={index} />
         )}
     </div>
 }

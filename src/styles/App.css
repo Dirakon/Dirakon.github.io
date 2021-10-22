@@ -6,7 +6,9 @@
 
 #root{
     display: flex;
-    justify-content: center;
+}
+.total{
+    line-height: 1vw;
 }
 
 .App{
@@ -16,28 +18,79 @@
     width: 94%;
 }
 .projectTitle{
-    font-size: 2vw;
-    line-height: 1vw;
+    display:inline-block;
+    background-color: rgba(255, 255, 255, 0.281);
+  text-shadow: 0 0 0.3vw white;
+  
+  font-size: 2vw;
+  line-height: 1vw;
 }
 .projectDescription{
+    display:inline-block;
+    background-color: rgba(255, 255, 255, 0.281);
+    text-shadow: 0 0 0.3vw white;
     font-size: 1.5vw;
     line-height: 1vw;
 }
 .project{
+    position: relative;
+    display: flex;
     margin: 0 auto;
     text-align: left;
     width: 80%;
     aspect-ratio: 8/1;
-    display: flex;
-    padding: 5px;
-    border: 2px solid;
     margin-top: 15px;
     justify-content: space-between;
     align-items: center;
-    background-color: purple;
+    padding: 5px;
+    /*border: 2px solid;*/
+    margin-top: 15px;
     transition-duration: 250ms;
 }
+
+img {
+
+    width: 100%;
+  /* 
+    border: 2px solid;
+    width: calc(100% + 10px);
+    margin-left: -5px;
+    margin-top: -5px;*/
+    aspect-ratio: 8/1;
+
+    align-self: center;
+    justify-content: space-between;
+    text-align: left;
+    object-fit: cover;
+    pointer-events: none;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+  }
+/*
+
+.project:after {
+    justify-content: space-between;
+    align-items: center;
+  
+    margin: 0 auto;
+    padding: 5px;
+    border: 2px solid;
+    margin-top: 15px;
+    position: absolute;
+    content: " ";
+    width: 80%;
+    aspect-ratio: 8/1;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  
+  .project:hover:after {
+    display: block;
+  }
+  */
 .project:hover{
-    background-color: white;
     width: 88%;
 }
