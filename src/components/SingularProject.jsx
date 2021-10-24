@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import image from './../images/airship.jpg'
 import './../styles/App.css'
 const SingularProject = function (props) {
     let clickFunc = function (arg) {
@@ -21,14 +20,7 @@ const SingularProject = function (props) {
         </div>
         <div className="theRealProjectWrapper">
             <div className="theRealProject">
-                <a>asdasdasd</a>
-                <br />
-                <br />
-                <br />
-                <a>asdasdasd</a>
-                <br />
-                <br />
-                <a>asdasdasd</a>
+                {props.children}
             </div>
         </div>
     </div>
