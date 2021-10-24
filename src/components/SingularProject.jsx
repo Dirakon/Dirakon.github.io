@@ -8,7 +8,6 @@ const SingularProject = function (props) {
         }
         arg.classList.toggle("collapsed")
     }
-
     let obj = <div className="projectFather collapsed">
         < div className="project" onClick={clickFunc}>
             <img className="projectImage" src={props.image} />
