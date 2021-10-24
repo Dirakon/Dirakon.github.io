@@ -1,27 +1,11 @@
 import React, { useState } from "react";
-import './../styles/App.css'
+import './../styles/SingularProject.css'
+import LongProjectInfo from "./LongProjectInfo";
+import ShortProjectInfo from "./ShortProjectInfo";
 const SingularProject = function (props) {
-    let clickFunc = function (arg) {
-        arg = arg.target
-        while (!arg.className.startsWith('projectFather')) {
-            arg = arg.parentNode;
-        }
-        arg.classList.toggle("collapsed")
-    }
-    let obj = <div className="projectFather collapsed">
-        < div className="project" onClick={clickFunc}>
-            <img className="projectImage" src={props.image} />
-            <div className="total">
-                <strong className="projectTitle">{props.title}</strong>
-                <br />
-                <a className="projectDescription">{props.description}</a>
-            </div>
-        </div>
-        <div className="theRealProjectWrapper">
-            <div className="theRealProject">
-                {props.children}
-            </div>
-        </div>
+    let obj = <div className="fullProject collapsed">
+        <ShortProjectInfo title = {props.title} description = {props.description} image = {props.image}/>
+        <LongProjectInfo video = {props.video}>{props.children}</LongProjectInfo>
     </div>
 
     return obj
