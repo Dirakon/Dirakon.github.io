@@ -73,7 +73,8 @@ const ProjectList = function (props) {
         </h2>
         {criterionSearch}
         {props.projects.map((project, index) =>
-            {if (fitsTheCriterions(project.criterions))return <SingularProject title={project.title} description={project.description} image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>}
+            {if (fitsTheCriterions(project.criterions))return <SingularProject title={project.title} description={project.description} 
+            criterions = {project.criterions}image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>}
         )}
     </div>
 }

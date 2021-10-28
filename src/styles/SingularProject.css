@@ -2,3 +2,7 @@
     height: auto;
     position: relative;
 }
+.featureTag{
+    font-weight: bold;
+    color: purple;
+}
