@@ -9,7 +9,7 @@ const ProjectList = function (props) {
     if (props.hasOwnProperty("criterionSearch")) {
 
         props.projects.forEach(project => {
-            if (project.criterions == undefined) {
+            if (project.criterions === undefined) {
                 return;
             }
 
@@ -42,14 +42,14 @@ const ProjectList = function (props) {
 
     }
     let [chosenCriterions, setChosenCriterions] = useState(newChosenCriterions);
-    if (props.criterionSearch != undefined) {
+    if (props.criterionSearch !== undefined) {
         criterionSearch = <CriterionSearch
             setChosenCriterions={setChosenCriterions} criterions={criterions}></CriterionSearch>;
     }
     function fitsTheCriterions(projectCriterions){
         for (const criterion in chosenCriterions){
             if (chosenCriterions.hasOwnProperty(criterion)){
-                if (chosenCriterions[criterion] == "")
+                if (chosenCriterions[criterion] === "")
                     continue;
                 if (!projectCriterions.hasOwnProperty(criterion))
                     return false;

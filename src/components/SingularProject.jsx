@@ -19,12 +19,12 @@ const SingularProject = function (props) {
                 }
                     break;
                 default: {
-                    if (proccessedCriterions.length != 0)
+                    if (proccessedCriterions.length !== 0)
                         proccessedCriterions = [<a key = {-1}>, </a>]
                     criterions[criterion].forEach((feature,index) => {
                         proccessedCriterions = proccessedCriterions.concat(<a key = {index} className = {"featureTag"}>{feature}</a>).concat(<a key = {100 + index}>, </a>);
                     });
-                    if (proccessedCriterions.length != 0)
+                    if (proccessedCriterions.length !== 0)
                         proccessedCriterions = proccessedCriterions.slice(0,-1)
                 }
                     break;

@@ -23,13 +23,8 @@ function convertLanguageNameToIcon(name){
 
 const ProgrammingLanguagesBox = function (props) {
     let languageSet = []
-    let globalIndex = 0;
-    for (let index  = 0;index < props.programmingLanguages.length;index+=2){
-        let ourPair = []
-        for (let localIndex = index;localIndex < Math.min(props.programmingLanguages.length,index+2);++localIndex){
-            ourPair = ourPair.concat(<div key = {globalIndex++} className = "singularLanguage"> {convertLanguageNameToIcon(props.programmingLanguages[localIndex])}</div>);
-        }
-        languageSet = languageSet.concat(<div key = {globalIndex++} className = "programmingLanguagePair">{ourPair}</div>)
+    for (let index  = 0;index < props.programmingLanguages.length;index++){
+        languageSet = languageSet.concat(<div key = {index++} className = "singularLanguage"> {convertLanguageNameToIcon(props.programmingLanguages[index])}</div>)
     }
     return < div className="programmingLanguagesBox">
         {languageSet}

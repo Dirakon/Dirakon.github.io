@@ -1,5 +1,6 @@
 
 .shortProjectInfo{
+  z-index: 1;
     /*Make text unselectable*/
      -ms-user-select:none;
      -moz-user-select:none;
@@ -9,9 +10,9 @@
       user-select:none;
   
       /*Text settings for project title and description*/
-      line-height: 1.5vw;
+      line-height: var(--mediumTextSize);
       background-color: rgba(202, 3, 209, 0.623);
-      text-shadow: 0 0 0.3vw white;
+      text-shadow: 0 0 calc(0.3vw*var(--scaleFactor)) white;
       color:black;
   }
 .shortProjectInfoWrapper{
@@ -19,7 +20,7 @@
     display: flex;
     margin: 0 auto;
     text-align: left;
-    width: 88%;
+    width: calc(80% + 8%*var(--scaleFactor));
     aspect-ratio: 8/1;
     margin-top: 15px;
     justify-content: space-between;
@@ -29,10 +30,10 @@
     transition-duration: 250ms;
 }
 .collapsed .shortProjectInfoWrapper{
-    width: 80%;
+  width: calc(72% + 8%*var(--scaleFactor));
 }
 .shortProjectInfoWrapper:hover{
-    width: 88%;
+  width: calc(80% + 8%*var(--scaleFactor));
 
 }
 .projectImage {
@@ -50,7 +51,6 @@
     position: absolute;
     top:0;
     left:0;
-    z-index: -1;
     transition-duration: 250ms;
     transition-property: all;
     opacity: 1;
@@ -64,12 +64,13 @@
     border: 4px solid black;
   }
   .projectTitle{
-    font-size: 2vw;
+    font-size: var(--bigTextSize);
   }
   .projectDescription{
-      font-size: 1.5vw;
+      font-size: var(--mediumTextSize);
   }
 
 .star{
-  font-size: 2vw;
+  z-index: 1;
+  font-size: var(--bigTextSize);
 }

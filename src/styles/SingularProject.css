@@ -1,6 +1,7 @@
 .fullProject{
     height: auto;
     position: relative;
+    min-height: 10vw;
 }
 .featureTag{
     font-weight: bold;
