@@ -3,29 +3,29 @@ import './../styles/SingularProject.css'
 import LongProjectInfo from "./LongProjectInfo";
 import ShortProjectInfo from "./ShortProjectInfo";
 const SingularProject = function (props) {
-    const criterions = props.criterions;
-    let proccessedCriterions = [];
+    const criteria = props.criteria;
+    let proccessedCriteria = [];
     let hasStar = false;
     let programmingLanguages = [];
-    for (const criterion in criterions) {
-        if (criterions.hasOwnProperty(criterion)) {
+    for (const criterion in criteria) {
+        if (criteria.hasOwnProperty(criterion)) {
             switch (criterion) {
                 case 'programming language': {
-                    programmingLanguages = criterions[criterion];
+                    programmingLanguages = criteria[criterion];
                 }
                     break;
-                case '⭐': if(criterions['⭐'][0].startsWith('⭐')){
+                case '⭐': if(criteria['⭐'][0].startsWith('⭐')){
                     hasStar = true;
                 }
                     break;
                 default: {
-                    if (proccessedCriterions.length !== 0)
-                        proccessedCriterions = [<a key = {-1}>, </a>]
-                    criterions[criterion].forEach((feature,index) => {
-                        proccessedCriterions = proccessedCriterions.concat(<a key = {index} className = {"featureTag"}>{feature}</a>).concat(<a key = {100 + index}>, </a>);
+                    if (proccessedCriteria.length !== 0)
+                        proccessedCriteria = [<a key = {-1}>, </a>]
+                    criteria[criterion].forEach((feature,index) => {
+                        proccessedCriteria = proccessedCriteria.concat(<a key = {index} className = {"featureTag"}>{feature}</a>).concat(<a key = {100 + index}>, </a>);
                     });
-                    if (proccessedCriterions.length !== 0)
-                        proccessedCriterions = proccessedCriterions.slice(0,-1)
+                    if (proccessedCriteria.length !== 0)
+                        proccessedCriteria = proccessedCriteria.slice(0,-1)
                 }
                     break;
             }
@@ -33,7 +33,7 @@ const SingularProject = function (props) {
     }
     let obj = <div className="fullProject collapsed">
         <ShortProjectInfo hasStar = {hasStar} programmingLanguages = {programmingLanguages} title={props.title} description={props.description} image={props.image} />
-        <LongProjectInfo video={props.video}>{proccessedCriterions}<br />{props.children}</LongProjectInfo>
+        <LongProjectInfo video={props.video}>{proccessedCriteria}<br />{props.children}</LongProjectInfo>
     </div>
 
     return obj

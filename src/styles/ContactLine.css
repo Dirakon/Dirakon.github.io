@@ -1,0 +1,10 @@
+.contactIcon{
+    height: 5vw;
+    margin-left: 1vw;
+}
+.contactLine{
+    padding-top: 1vw;
+    background-color: rgba(202, 3, 209, 0.623);
+    margin: 0 auto;
+    width: fit-content;
+}

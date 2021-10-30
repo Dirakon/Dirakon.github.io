@@ -8,7 +8,7 @@
   -khtml-user-select: none;
   user-select: none;
   /*Text settings for project title and description*/
-  line-height: var(--mediumTextSize);
+  line-height: var(--smallTextSize);
   background-color: rgba(202, 3, 209, 0.623);
   color: black;
 }

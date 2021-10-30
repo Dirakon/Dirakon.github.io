@@ -25,6 +25,7 @@ html, body {
 }
 
 .App {
+  font-family: 'Zen Antique', serif;
   align-items: center;
   text-align: center;
   overflow: hidden;
@@ -34,4 +35,10 @@ html, body {
   background-color: silver;
   width: fit-content;
   margin: 0 auto;
+}
+.aboutMeParagraph{
+  background-color: rgba(202, 3, 209, 0.623);
+  margin: 0 auto;
+  width: fit-content;
+  font-size: var(--mediumTextSize);
 }

@@ -4,24 +4,24 @@ import CriterionSearch from "./CriterionSearch";
 import './../styles/ProjectList.css'
 const ProjectList = function (props) {
     let criterionSearch;
-    let criterions = {};
-    let newChosenCriterions = {}
+    let criteria = {};
+    let newChosenCriteria = {}
     if (props.hasOwnProperty("criterionSearch")) {
 
         props.projects.forEach(project => {
-            if (project.criterions === undefined) {
+            if (project.criteria === undefined) {
                 return;
             }
 
-            Object.keys(project.criterions).forEach((criterion, index) => {
-                if (!criterions.hasOwnProperty(criterion)) {
-                    criterions[criterion] = {};
+            Object.keys(project.criteria).forEach((criterion, index) => {
+                if (!criteria.hasOwnProperty(criterion)) {
+                    criteria[criterion] = {};
                 }
-                project.criterions[criterion].forEach(feature => {
-                    if (criterions[criterion].hasOwnProperty(feature)) {
-                        criterions[criterion][feature]++;
+                project.criteria[criterion].forEach(feature => {
+                    if (criteria[criterion].hasOwnProperty(feature)) {
+                        criteria[criterion][feature]++;
                     } else {
-                        criterions[criterion][feature] = 1;
+                        criteria[criterion][feature] = 1;
                     }
                 });
             });
@@ -29,34 +29,34 @@ const ProjectList = function (props) {
         });
 
 
-        Object.keys(criterions).forEach((criterion, index) => {
-            newChosenCriterions[criterion] = ""
+        Object.keys(criteria).forEach((criterion, index) => {
+            newChosenCriteria[criterion] = ""
             let handledFeatures = [];
-            for (var feature in criterions[criterion]) {
-                if (criterions[criterion].hasOwnProperty(feature)) {
-                    handledFeatures = handledFeatures.concat(feature + " (" + criterions[criterion][feature].toString() + ")");
+            for (var feature in criteria[criterion]) {
+                if (criteria[criterion].hasOwnProperty(feature)) {
+                    handledFeatures = handledFeatures.concat(feature + " (" + criteria[criterion][feature].toString() + ")");
                 }
             }
-            criterions[criterion] = handledFeatures;
+            criteria[criterion] = handledFeatures;
         });
 
     }
-    let [chosenCriterions, setChosenCriterions] = useState(newChosenCriterions);
+    let [chosenCriteria, setChosenCriteria] = useState(newChosenCriteria);
     if (props.criterionSearch !== undefined) {
         criterionSearch = <CriterionSearch
-            setChosenCriterions={setChosenCriterions} criterions={criterions}></CriterionSearch>;
+            setChosenCriteria={setChosenCriteria} criteria={criteria}></CriterionSearch>;
     }
-    function fitsTheCriterions(projectCriterions){
-        for (const criterion in chosenCriterions){
-            if (chosenCriterions.hasOwnProperty(criterion)){
-                if (chosenCriterions[criterion] === "")
+    function fitsTheCriteria(projectCriteria){
+        for (const criterion in chosenCriteria){
+            if (chosenCriteria.hasOwnProperty(criterion)){
+                if (chosenCriteria[criterion] === "")
                     continue;
-                if (!projectCriterions.hasOwnProperty(criterion))
+                if (!projectCriteria.hasOwnProperty(criterion))
                     return false;
                 let found = false;
-                for(let index in projectCriterions[criterion]){
-                    let feature = projectCriterions[criterion][index]
-                    if (chosenCriterions[criterion].startsWith(feature)){
+                for(let index in projectCriteria[criterion]){
+                    let feature = projectCriteria[criterion][index]
+                    if (chosenCriteria[criterion].startsWith(feature)){
                         found = true;
                         break;
                     }
@@ -71,11 +71,15 @@ const ProjectList = function (props) {
         <h2 className = "header">
             {props.title}
         </h2>
+
+      <br/>
         {criterionSearch}
         {props.projects.map((project, index) =>
-            {if (fitsTheCriterions(project.criterions))return <SingularProject title={project.title} description={project.description} 
-            criterions = {project.criterions}image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>}
+            {if (fitsTheCriteria(project.criteria))return <SingularProject title={project.title} description={project.description} 
+            criteria = {project.criteria}image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>}
         )}
+
+      <br/>
     </div>
 }
 
