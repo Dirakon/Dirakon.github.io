@@ -68,7 +68,7 @@ const ProjectList = function (props) {
         return true;
     }
     return < div className="projectList">
-        <h2>
+        <h2 className = "header">
             {props.title}
         </h2>
         {criterionSearch}

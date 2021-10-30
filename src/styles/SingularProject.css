@@ -1,9 +1,10 @@
-.fullProject{
+.fullProject {
     height: auto;
     position: relative;
     min-height: 10vw;
 }
-.featureTag{
+
+.featureTag {
     font-weight: bold;
     color: purple;
 }

@@ -14,7 +14,7 @@ const SingularProject = function (props) {
                     programmingLanguages = criterions[criterion];
                 }
                     break;
-                case '⭐': {
+                case '⭐': if(criterions['⭐'][0].startsWith('⭐')){
                     hasStar = true;
                 }
                     break;

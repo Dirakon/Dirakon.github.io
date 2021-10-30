@@ -1,5 +1,7 @@
-.SingularCriterion{
+.SingularCriterion {
     font-size: var(--smallTextSize);
     background-color: rgba(202, 3, 209, 0.623);
     border-radius: 0.4vw;
+    margin-left: 1vw;
+    border-width: 0;
 }
