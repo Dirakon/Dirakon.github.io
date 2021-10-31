@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import './../styles/SingularCriterion.css'
 const SingularCriterion = function (props) {
     let onChangeFunc = function (obj) {
-        props.stateToChangeChosenCriteria(chosenCriteria => {
-            chosenCriteria[props.criterionName] = obj.target.value;
-            return { ...chosenCriteria }
+        props.stateToChangeChosenFeatures(chosenFeatures => {
+            chosenFeatures[props.criterionName] = obj.target.value;
+            return { ...chosenFeatures }
         })
     }
     return <select onChange={onChangeFunc} className={'SingularCriterion'} defaultValue={''} >

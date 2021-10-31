@@ -16,10 +16,10 @@ import imageSITE from "./images/site.png"
 import github from "./images/github.png"
 import linkedin from "./images/linkedin.png"
 import youtube from "./images/youtube.png"
-import email from "./images/mail.png"
 import twitter from "./images/twitter.png"
 import './styles/App.css'
 import ContactLine from "./components/ContactLine";
+import ContactForm from "./components/ContactForm";
 
 function startResolutionCourutine() {
 
@@ -39,7 +39,10 @@ function startResolutionCourutine() {
   setInterval(autoResultionChanger, 1000);
 }
 
+
 function App() {
+
+
   const projects = [
     {
       title: "The Branch Office", description: "Game made in a week about managing workers and not letting the office fall from the branch", image: imageTBO, video: gifTBO, criteria: {
@@ -149,7 +152,7 @@ function App() {
         </div>
     },
     {
-      title: "RTS Prototype", description: "Implementaton of basic RTS mechanics in Unity", image: imageRTS, video: gifRTS, criterions: {
+      title: "RTS Prototype", description: "Implementaton of basic RTS mechanics in Unity", image: imageRTS, video: gifRTS, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
         "⭐": [" "]
@@ -181,7 +184,7 @@ function App() {
         </div>
     },
     {
-      title: "Skeleton Deconstructor", description: "Game made in 2 days about destroying dynamically self-constructing skeletons", image: imageSD, video: gifSD, criterions: {
+      title: "Skeleton Deconstructor", description: "Game made in 2 days about destroying dynamically self-constructing skeletons", image: imageSD, video: gifSD, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
         "⭐": [""]
@@ -199,7 +202,7 @@ function App() {
         </div>
     },
     {
-      title: "2D Sideview Platformer-Slasher", description: "Game made in 2 days about revenge", image: imagePS, video: gifPS, criterions: {
+      title: "2D Sideview Platformer-Slasher", description: "Game made in 2 days about revenge", image: imagePS, video: gifPS, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
         "⭐": [""]
@@ -216,7 +219,7 @@ function App() {
         </div>
     },
     {
-      title: "This website", description: "You are observing it right now", image: imageSITE, criterions: {
+      title: "This website", description: "You are observing it right now", image: imageSITE, criteria: {
         "programming language": ["js"],
         "technologies": ["reactJS"],
         "⭐": [" "]
@@ -231,28 +234,29 @@ function App() {
     }
   ]
 
-  const contactLinkToIcon = {'https://www.linkedin.com/in/dmitry-bannikov-438974224/' : linkedin,
-  'https://twitter.com/DirakonD' : twitter,
-  'https://github.com/Dirakon/':github,
-  'https://www.youtube.com/channel/UCn5B_rRW6n4LYdyNpNAwSqw' : youtube,
-  'mailto:dirakondead@gmail.com':email
-}
+  const contactLinkToIcon = {
+    'https://www.linkedin.com/in/dmitry-bannikov-438974224/': linkedin,
+    'https://twitter.com/DirakonD': twitter,
+    'https://github.com/Dirakon/': github,
+    'https://www.youtube.com/channel/UCn5B_rRW6n4LYdyNpNAwSqw': youtube
+  }
 
   startResolutionCourutine();
   return (
     <div className="App">
       <h1 className="header">My portfolio</h1>
-      <br/>
+      <br />
       <h2 className="header">About me</h2>
-      <br/>
-      <p className = "aboutMeParagraph">
-        Hi! My name is Dmitry Bannikov, and I am a programmer.<br/>
+      <br />
+      <p className="aboutMeParagraph">
+        Hi! My name is Dmitry Bannikov, and I am a programmer.<br />
         You can find me in other places:
       </p>
-        <ContactLine linksToIcons = {contactLinkToIcon}></ContactLine>
-      <br/>
+      <ContactLine linksToIcons={contactLinkToIcon}></ContactLine>
+      <br />
       <ProjectList projects={projects} title="My projects" criterionSearch />
-        <ContactLine linksToIcons = {contactLinkToIcon}></ContactLine>
+      <ContactLine linksToIcons={contactLinkToIcon}></ContactLine>
+      <ContactForm></ContactForm>
     </div>
   );
 }

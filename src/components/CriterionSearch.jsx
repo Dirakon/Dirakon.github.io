@@ -6,7 +6,7 @@ const CriterionSearch = function (props) {
 
     Object.keys(props.criteria).forEach((criterion,index) =>{
         singularCriteria = singularCriteria.concat(<SingularCriterion key = {index}
-            stateToChangeChosenCriteria = {props.setChosenCriteria} criterionName = {criterion} features = {props.criteria[criterion]}/>)
+            stateToChangeChosenFeatures = {props.setChosenFeatures} criterionName = {criterion} features = {props.criteria[criterion]}/>)
     })
     return < div className="criterionSearch">
         {singularCriteria}

@@ -10,10 +10,7 @@ const ShortProjectInfo = function (props) {
         arg.classList.toggle("collapsed")
     }
 
-    let star = " ";
-    if (props.hasStar){
-        star = '⭐';
-    }
+    let star = props.hasStar? "⭐":" ";
 
     return < div className="shortProjectInfoWrapper" onClick={clickFunc}>
         <img className="projectImage" src={props.image} />
