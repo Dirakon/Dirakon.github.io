@@ -35,7 +35,7 @@ const ContactForm = function (props) {
 
             <label className = "formLabel" htmlFor="subject">Subject</label>
             <textarea className = "formField" id="subject" name="subject" 
-                placeholder="Write something.." style={{ height: '20vw' }}></textarea>
+                placeholder="Write something.." style={{ height: '10vw' }}></textarea>
 
             <input className = "formButton" type="submit" value="Submit" />
         </form>

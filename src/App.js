@@ -14,6 +14,8 @@ import imageSKI from "./images/ski.png"
 import gifSKI from "./images/ski.mp4"
 import imageSITE from "./images/site.png"
 import github from "./images/github.png"
+import gifMCG from "./images/mcg.mp4"
+import imageMCG from "./images/mcg.png"
 import linkedin from "./images/linkedin.png"
 import youtube from "./images/youtube.png"
 import twitter from "./images/twitter.png"
@@ -61,7 +63,7 @@ function App() {
         </div>
     },
     {
-      title: "Mobile Continent Generator", description: "Mobile app that lets the user observe some randomly generated worlds and nations", video: gifDE, image: imageTBO, criteria: {
+      title: "Mobile Continent Generator", description: "Mobile app that lets the user observe some randomly generated worlds and nations", video: gifMCG, image: imageMCG, criteria: {
         "programming language": ["java", "c++"],
         "technologies": ["android"],
         "⭐": ["⭐"]
@@ -134,7 +136,7 @@ function App() {
           </p>
         </div>
     },*/
-    {
+    /*{
       title: "Minecraft Random Dungeon Generator", description: "Minecraft plugin for creation and customization of randomly generated dungeons", image: imageDE, video: gifDE, criteria: {
         "programming language": ["java"],
         "technologies": ["minecraft plugin"],
@@ -150,7 +152,7 @@ function App() {
             You can check out <a href={"https://github.com/Dirakon/Minecraft-Random-Dungeon-Generator"}>the source code</a>.
           </p>
         </div>
-    },
+    },*/
     {
       title: "RTS Prototype", description: "Implementaton of basic RTS mechanics in Unity", image: imageRTS, video: gifRTS, criteria: {
         "programming language": ["c#"],
@@ -167,7 +169,7 @@ function App() {
           </p>
         </div>
     },
-    {
+    /*{
       title: "Youtube Watchtime Controller", description: "Browser extension that allows the user to control the time spent watching Youtube videos", image: imageDE, video: gifDE, criteria: {
         "programming language": ["js"],
         "technologies": ["browser extension"],
@@ -182,12 +184,12 @@ function App() {
             You can check out <a href={"https://github.com/Dirakon/Youtube-Watchtime-Controller"}>the source code.</a>
           </p>
         </div>
-    },
+    },*/
     {
       title: "Skeleton Deconstructor", description: "Game made in 2 days about destroying dynamically self-constructing skeletons", image: imageSD, video: gifSD, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
-        "⭐": [""]
+        "⭐": [" "]
       }, actual:
         <div>
           <p>
@@ -205,7 +207,7 @@ function App() {
       title: "2D Sideview Platformer-Slasher", description: "Game made in 2 days about revenge", image: imagePS, video: gifPS, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
-        "⭐": [""]
+        "⭐": [" "]
       }, actual:
         <div>
           <p>
@@ -244,7 +246,7 @@ function App() {
   startResolutionCourutine();
   return (
     <div className="App">
-      <h1 className="header">My portfolio</h1>
+      <h1 className="header" style = {{marginTop: "1vw"}}>My portfolio</h1>
       <br />
       <h2 className="header">About me</h2>
       <br />
@@ -256,6 +258,8 @@ function App() {
       <br />
       <ProjectList projects={projects} title="My projects" criterionSearch />
       <ContactLine linksToIcons={contactLinkToIcon}></ContactLine>
+      <h2 className="header">Contact me!</h2>
+      <br />
       <ContactForm></ContactForm>
     </div>
   );
