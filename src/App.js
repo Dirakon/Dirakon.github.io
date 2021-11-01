@@ -13,12 +13,12 @@ import gifRTS from "./images/rts_wg.mp4"
 import imageSKI from "./images/ski.png"
 import gifSKI from "./images/ski.mp4"
 import imageSITE from "./images/site.png"
-import github from "./images/github.png"
 import gifMCG from "./images/mcg.mp4"
 import imageMCG from "./images/mcg.png"
-import linkedin from "./images/linkedin.png"
-import youtube from "./images/youtube.png"
-import twitter from "./images/twitter.png"
+import github from "./images/github2.png"
+import linkedin from "./images/linkedin2.png"
+import youtube from "./images/youtube2.png"
+import twitter from "./images/twitter2.png"
 import './styles/App.css'
 import ContactLine from "./components/ContactLine";
 import ContactForm from "./components/ContactForm";
@@ -246,10 +246,8 @@ function App() {
   startResolutionCourutine();
   return (
     <div className="App">
-      <h1 className="header" style = {{marginTop: "1vw"}}>My portfolio</h1>
-      <br />
+      <h1 className="header">My portfolio</h1>
       <h2 className="header">About me</h2>
-      <br />
       <p className="aboutMeParagraph">
         Hi! My name is Dmitry Bannikov, and I am a programmer.<br />
         You can find me in other places:
@@ -258,8 +256,8 @@ function App() {
       <br />
       <ProjectList projects={projects} title="My projects" criterionSearch />
       <ContactLine linksToIcons={contactLinkToIcon}></ContactLine>
-      <h2 className="header">Contact me!</h2>
       <br />
+      <h2 className="header">Contact me!</h2>
       <ContactForm></ContactForm>
     </div>
   );

@@ -2,13 +2,20 @@
   font-size: var(--smallTextSize);
   overflow: hidden;
   margin: 0 auto;
-  background-color: silver;
   text-align: left;
   width: 80%;
   /*z-index: -2;*/
   margin-bottom: 0;
   max-height: 1000000px;
   transition: margin-bottom 0.3s cubic-bezier(0, 0, 0, 1);
+  border-color: black;
+  border-left-width: 2vw;
+  border-right-width: 2vw;
+  border-bottom:-width 2vw;
+  border: calc(var(--scaleFactor)*0.5vw) solid black;
+  background-color: rgb(71, 61, 61);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top-width: 0;
 }
 
 .collapsed .longProjectInfoWrapper .longProjectInfo {

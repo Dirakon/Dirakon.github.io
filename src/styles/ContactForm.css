@@ -1,6 +1,6 @@
  .formField {
      font-size: var(--mediumTextSize);
-     background-color: silver;
+     
      width: 100%;
      padding: 12px;
      border: 1px solid #ccc;
@@ -11,11 +11,11 @@
  }
 
  .formLabel {
+     color:white;
      font-size: var(--bigTextSize);
  }
 
  .formButton {
-     background-color: silver;
      padding: 12px 20px;
      border: none;
      border-radius: 4px;
@@ -31,6 +31,5 @@
      width: 80%;
      margin: 0 auto;
      border-radius: 5px;
-     background-color: rgba(202, 3, 209, 0.623);
      padding: 20px;
  }

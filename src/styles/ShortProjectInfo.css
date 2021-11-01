@@ -9,8 +9,7 @@
   user-select: none;
   /*Text settings for project title and description*/
   line-height: var(--smallTextSize);
-  background-color: rgba(202, 3, 209, 0.623);
-  color: black;
+  color:white;
 }
 
 .shortProjectInfoWrapper {
@@ -54,7 +53,7 @@
 }
 
 .collapsed .shortProjectInfoWrapper .projectImage {
-  opacity: 0.7;
+  opacity: 0.5;
   border: 2px solid black;
 }
 
