@@ -19,6 +19,7 @@ import github from "./images/github2.png"
 import linkedin from "./images/linkedin2.png"
 import youtube from "./images/youtube2.png"
 import twitter from "./images/twitter2.png"
+import itch from "./images/itch2.png"
 import './styles/App.css'
 import ContactLine from "./components/ContactLine";
 import ContactForm from "./components/ContactForm";
@@ -240,7 +241,8 @@ function App() {
     'https://www.linkedin.com/in/dmitry-bannikov-438974224/': linkedin,
     'https://twitter.com/DirakonD': twitter,
     'https://github.com/Dirakon/': github,
-    'https://www.youtube.com/channel/UCn5B_rRW6n4LYdyNpNAwSqw': youtube
+    'https://www.youtube.com/channel/UCn5B_rRW6n4LYdyNpNAwSqw/': youtube,
+    'https://dirakon.itch.io/': itch
   }
 
   startResolutionCourutine();
