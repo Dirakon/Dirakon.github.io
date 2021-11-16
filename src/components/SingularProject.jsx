@@ -3,7 +3,7 @@ import './../styles/SingularProject.css'
 import LongProjectInfo from "./LongProjectInfo";
 import ShortProjectInfo from "./ShortProjectInfo";
 const SingularProject = function (props) {
-    const { proccessedDeafultCriteria, hasStar, programmingLanguages } = proccessCriteria(props.criteria)
+    const { proccessedDeafultCriteria, hasStar, programmingLanguages } = proccessCriteria(props.criteria);
     let obj = <div className="fullProject collapsed">
         <ShortProjectInfo hasStar={hasStar} programmingLanguages={programmingLanguages} title={props.title} description={props.description} image={props.image} />
         <LongProjectInfo video={props.video}>{proccessedDeafultCriteria}<br />{props.children}</LongProjectInfo>
@@ -13,10 +13,10 @@ const SingularProject = function (props) {
 }
 
 function proccessCriteria(criteria) {
-
     let proccessedDeafultCriteria = [];
     let hasStar = false;
     let programmingLanguages = [];
+    let curIndexOffset = 0;
     for (const criterion in criteria) {
         if (criteria.hasOwnProperty(criterion)) {
             switch (criterion) {
@@ -28,25 +28,23 @@ function proccessCriteria(criteria) {
                 }
                     break;
                 default:
-                    proccessedDeafultCriteria = proccessDefaultCriteria(proccessedDeafultCriteria, criteria, criterion);
+                    proccessedDeafultCriteria = proccessDefaultCriteria(proccessedDeafultCriteria, criteria, criterion, curIndexOffset);
                     break;
             }
+            curIndexOffset += 200;
         }
     }
     return { proccessedDeafultCriteria: proccessedDeafultCriteria, hasStar: hasStar, programmingLanguages: programmingLanguages }
 }
 
-
-function proccessDefaultCriteria(proccessedDeafultCriteria, criteria, criterion) {
-    {
-        if (proccessedDeafultCriteria.length !== 0)
-            proccessedDeafultCriteria = [<a key={-1}>, </a>];
-        criteria[criterion].forEach((feature, index) => {
-            proccessedDeafultCriteria = proccessedDeafultCriteria.concat(<a key={index} className={"featureTag"}>{feature}</a>).concat(<a key={100 + index}>, </a>);
-        });
-        if (proccessedDeafultCriteria.length !== 0)
-            proccessedDeafultCriteria = proccessedDeafultCriteria.slice(0, -1);
-    }
+function proccessDefaultCriteria(proccessedDeafultCriteria, criteria, criterion, curIndexOffset) {
+    if (proccessedDeafultCriteria.length !== 0)
+        proccessedDeafultCriteria = proccessedDeafultCriteria.concat([<a key={curIndexOffset - 1}>, </a>]);
+    criteria[criterion].forEach((feature, index) => {
+        proccessedDeafultCriteria = proccessedDeafultCriteria.concat(<a key={curIndexOffset + index} className={"featureTag"}>{feature}</a>).concat(<a key={curIndexOffset + 100 + index}>, </a>);
+    });
+    if (proccessedDeafultCriteria.length !== 0)
+        proccessedDeafultCriteria = proccessedDeafultCriteria.slice(0, -1);
     return proccessedDeafultCriteria;
 }
 

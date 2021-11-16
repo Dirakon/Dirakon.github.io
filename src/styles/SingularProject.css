@@ -6,4 +6,8 @@
 
 .featureTag {
     font-weight: bold;
+    text-decoration: underline;     
+    text-decoration-color: black;  
+    text-decoration-thickness: calc(var(--smallTextSize)*0.1);
+    text-underline-offset:  calc(var(--smallTextSize)*0.3);
 }

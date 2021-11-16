@@ -51,6 +51,7 @@ function App() {
       title: "The Branch Office", description: "Game made in a week about managing workers and not letting the office fall from the branch", image: imageTBO, video: gifTBO, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
+        "tags":["game","jam"],
         "⭐": ["⭐"]
       }, actual:
         <div>
@@ -67,7 +68,8 @@ function App() {
       title: "Mobile Continent Generator", description: "Mobile app that lets the user observe some randomly generated worlds and nations", video: gifMCG, image: imageMCG, criteria: {
         "programming language": ["java", "c++"],
         "technologies": ["android"],
-        "⭐": ["⭐"]
+        "⭐": ["⭐"],
+        "tags":["simulation"]
       }, actual:
         <div>
           <p>
@@ -158,7 +160,8 @@ function App() {
       title: "RTS Prototype", description: "Implementaton of basic RTS mechanics in Unity", image: imageRTS, video: gifRTS, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
-        "⭐": [" "]
+        "⭐": [" "],
+        "tags":["game"]
       }, actual:
         <div>
           <p>
@@ -190,7 +193,8 @@ function App() {
       title: "Skeleton Deconstructor", description: "Game made in 2 days about destroying dynamically self-constructing skeletons", image: imageSD, video: gifSD, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
-        "⭐": [" "]
+        "⭐": [" "],
+        "tags":["game","jam"]
       }, actual:
         <div>
           <p>
@@ -208,7 +212,8 @@ function App() {
       title: "2D Sideview Platformer-Slasher", description: "Game made in 2 days about revenge", image: imagePS, video: gifPS, criteria: {
         "programming language": ["c#"],
         "technologies": ["unity"],
-        "⭐": [" "]
+        "⭐": [" "],
+        "tags":["game","jam"]
       }, actual:
         <div>
           <p>
