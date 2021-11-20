@@ -39,13 +39,11 @@ function initializeEmptyCriteriaToChosenFeature(extractedCriteria) {
 }
 
 function fitsTheCriteria(projectCriteriaToFeatures, criteriaToChosenFeature) {
-    for (const criterion in projectCriteriaToFeatures) {
-        if (projectCriteriaToFeatures.hasOwnProperty(criterion)) {
-            let chosenFeature = criteriaToChosenFeature[criterion]
-            let someFeatureChosen = (chosenFeature !== "");
-            if (someFeatureChosen && !projectCriteriaToFeatures[criterion].includes(getUnformatedFeature(chosenFeature)))
-                return false;
-        }
+    for (const [criterion, projectFeatures] in projectCriteriaToFeatures.entries) {
+        let chosenFeature = getUnformatedFeature(criteriaToChosenFeature[criterion])
+        let isAnyFeatureChosen = (chosenFeature !== "");
+        if (isAnyFeatureChosen && !projectFeatures.includes(chosenFeature))
+            return false;
     }
     return true;
 }

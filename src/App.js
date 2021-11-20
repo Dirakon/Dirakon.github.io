@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import ProjectList from "./components/ProjectList";
+
+import github from "./images/github2.png"
+import linkedin from "./images/linkedin2.png"
+import youtube from "./images/youtube2.png"
+import twitter from "./images/twitter2.png"
+import itch from "./images/itch2.png"
+
 import imageTBO from "./images/The_Branch_Office.png"
 import gifTBO from "./images/tbo_gp.mp4"
 import imageDE from "./images/de.png"
@@ -15,14 +21,13 @@ import gifSKI from "./images/ski.mp4"
 import imageSITE from "./images/site.png"
 import gifMCG from "./images/mcg.mp4"
 import imageMCG from "./images/mcg.png"
-import github from "./images/github2.png"
-import linkedin from "./images/linkedin2.png"
-import youtube from "./images/youtube2.png"
-import twitter from "./images/twitter2.png"
-import itch from "./images/itch2.png"
+
 import './styles/App.css'
+
+import ProjectList from "./components/ProjectList";
 import ContactLine from "./components/ContactLine";
 import ContactForm from "./components/ContactForm";
+
 import startResolutionCourutine from "./components/ResolutionCourutine";
 
 const projects = [
