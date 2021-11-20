@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import './../styles/CriterionSearch.css'
 import SingularCriterion from "./SingularCriterion";
 const CriterionSearch = function (props) {
-    let singularCriteria = [];
-
-    Object.keys(props.criteria).forEach((criterion,index) =>{
-        singularCriteria = singularCriteria.concat(<SingularCriterion key = {index}
-            stateToChangeChosenFeatures = {props.setChosenFeatures} criterionName = {criterion} features = {props.criteria[criterion]}/>)
-    })
     return < div className="criterionSearch">
-        {singularCriteria}
+        {Object.keys(props.criteriaToFeatures).map((criterion, index) => <SingularCriterion key={index}
+            stateToChangeChosenFeatures={props.setCriteriaToChosenFeatures} criterionName={criterion} features={props.criteriaToFeatures[criterion]} />)
+        }
     </div>
 }
 

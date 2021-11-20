@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import './../styles/ProgrammingLanguagesBox.css'
 
-
-
-
 let proccessedImportedLanguages = {
     cpp:require('./../images/cpp.png'),
     java:require('./../images/java.png'),

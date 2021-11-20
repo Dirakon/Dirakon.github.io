@@ -3,49 +3,45 @@ import './../styles/SingularProject.css'
 import LongProjectInfo from "./LongProjectInfo";
 import ShortProjectInfo from "./ShortProjectInfo";
 const SingularProject = function (props) {
-    const { proccessedDeafultCriteria, hasStar, programmingLanguages } = proccessCriteria(props.criteria);
+    const { proccessedDeafultFeatures, hasStar, programmingLanguages } = proccessCriteria(props.criteriaToFeatures);
     let obj = <div className="fullProject collapsed">
         <ShortProjectInfo hasStar={hasStar} programmingLanguages={programmingLanguages} title={props.title} description={props.description} image={props.image} />
-        <LongProjectInfo video={props.video}>{proccessedDeafultCriteria}<br />{props.children}</LongProjectInfo>
+        <LongProjectInfo video={props.video}>{proccessedDeafultFeatures}<br />{props.children}</LongProjectInfo>
     </div>
 
     return obj
 }
 
-function proccessCriteria(criteria) {
-    let proccessedDeafultCriteria = [];
+const maximumDefaultFeaturesPerCriterion = 100;
+function proccessCriteria(criteriaToFeatures) {
+    let proccessedDeafultFeatures = [];
     let hasStar = false;
     let programmingLanguages = [];
-    let curIndexOffset = 0;
-    for (const criterion in criteria) {
-        if (criteria.hasOwnProperty(criterion)) {
-            switch (criterion) {
-                case 'programming language':
-                    programmingLanguages = criteria[criterion];
-                    break;
-                case '⭐': if (criteria['⭐'][0].startsWith('⭐')) {
-                    hasStar = true;
-                }
-                    break;
-                default:
-                    proccessedDeafultCriteria = proccessDefaultCriteria(proccessedDeafultCriteria, criteria, criterion, curIndexOffset);
-                    break;
-            }
-            curIndexOffset += 200;
+    Object.keys(criteriaToFeatures).forEach((criterion,index) => {
+        switch (criterion) {
+            case 'programming language':
+                programmingLanguages = criteriaToFeatures[criterion];
+                break;
+            case '⭐': 
+                hasStar = criteriaToFeatures['⭐'][0].startsWith('⭐');
+                break;
+            default:
+                proccessedDeafultFeatures = proccessDefaultFeatures(proccessedDeafultFeatures, criteriaToFeatures, criterion, index*maximumDefaultFeaturesPerCriterion*2);
+                break;
         }
-    }
-    return { proccessedDeafultCriteria: proccessedDeafultCriteria, hasStar: hasStar, programmingLanguages: programmingLanguages }
+    })
+    return { proccessedDeafultFeatures: proccessedDeafultFeatures, hasStar: hasStar, programmingLanguages: programmingLanguages }
 }
 
-function proccessDefaultCriteria(proccessedDeafultCriteria, criteria, criterion, curIndexOffset) {
-    if (proccessedDeafultCriteria.length !== 0)
-        proccessedDeafultCriteria = proccessedDeafultCriteria.concat([<a key={curIndexOffset - 1}>, </a>]);
+function proccessDefaultFeatures(proccessedDeafultFeatures, criteria, criterion, curIndexOffset) {
+    if (proccessedDeafultFeatures.length !== 0)
+        proccessedDeafultFeatures = proccessedDeafultFeatures.concat([<a key={curIndexOffset - 1}>, </a>]);
     criteria[criterion].forEach((feature, index) => {
-        proccessedDeafultCriteria = proccessedDeafultCriteria.concat(<a key={curIndexOffset + index} className={"featureTag"}>{feature}</a>).concat(<a key={curIndexOffset + 100 + index}>, </a>);
+        proccessedDeafultFeatures = proccessedDeafultFeatures.concat(<a key={curIndexOffset + index} className={"featureTag"}>{feature}</a>).concat(<a key={curIndexOffset + maximumDefaultFeaturesPerCriterion + index}>, </a>);
     });
-    if (proccessedDeafultCriteria.length !== 0)
-        proccessedDeafultCriteria = proccessedDeafultCriteria.slice(0, -1);
-    return proccessedDeafultCriteria;
+    if (proccessedDeafultFeatures.length !== 0)
+        proccessedDeafultFeatures = proccessedDeafultFeatures.slice(0, -1);
+    return proccessedDeafultFeatures;
 }
 
 export default SingularProject;

@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import './../styles/ContactLine.css'
 const ContactLine = function (props) {
-    let singularIcons = [];
-
-    Object.keys(props.linksToIcons).forEach((link, index) => {
-        singularIcons = singularIcons.concat(<a href={link} key={index}><img className="contactIcon" src={props.linksToIcons[link]}
-        /></a>)
-    })
     return < div className="contactLine">
-        {singularIcons}
+        {Object.keys(props.linksToIcons).map((link, index) => (<a href={link} key={index}>
+            <img className="contactIcon" src={props.linksToIcons[link]} />
+        </a>)
+        )}
     </div>
 }
 

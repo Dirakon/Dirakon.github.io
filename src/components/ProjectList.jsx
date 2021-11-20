@@ -2,52 +2,25 @@ import React, { useState } from "react";
 import SingularProject from "./SingularProject";
 import CriterionSearch from "./CriterionSearch";
 import './../styles/ProjectList.css'
+import extractCriteriaToFormattedFeaturesFromProjects from './CriteriaExtraction'
+
 const ProjectList = function (props) {
-    let criterionSearch;
-    let extractedCriteria = {};
-    let newChosenFeatures = ()=>{};
+    let criteriaToFormattedFeatures = {};
+    let newCriteriaToChosenFeatures = () => { };
     if (props.hasOwnProperty("criterionSearch")) {
-
-        extractedCriteria = extractAllCriteraAndCountTheOccurances(props.projects);
-        newChosenFeatures = initializeEmptySetOfChosenFeatures(extractedCriteria)
+        criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(props.projects);
+        newCriteriaToChosenFeatures = initializeEmptyCriteriaToChosenFeature(criteriaToFormattedFeatures)
     }
-    let [chosenFeatures, setChosenFeatures] = useState(() => newChosenFeatures);
-    if (props.criterionSearch !== undefined) {
-        criterionSearch = <CriterionSearch
-            setChosenFeatures={setChosenFeatures} criteria={extractedCriteria}></CriterionSearch>;
-    }
-    function fitsTheCriteria(projectCriteria) {
-        for (const criterion in chosenFeatures) {
-            if (chosenFeatures.hasOwnProperty(criterion)) {
-                if (chosenFeatures[criterion] === "")
-                    continue;
-                if (!projectCriteria.hasOwnProperty(criterion))
-                    return false;
-                let found = false;
-                for (let index in projectCriteria[criterion]) {
-                    let feature = projectCriteria[criterion][index]
-                    if (chosenFeatures[criterion].startsWith(feature)) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found)
-                    return false;
-            }
-        }
-        return true;
-    }
+    let [criteriaToChosenFeature, setCriteriaToChosenFeatures] = useState(() => newCriteriaToChosenFeatures);
     return < div className="projectList">
-        <h2 className="header">
-            {props.title}
-        </h2>
-
+        <h2 className="header">{props.title}</h2>
         <br />
-        {criterionSearch}
+        {props.criterionSearch === undefined ? undefined :
+            <CriterionSearch setCriteriaToChosenFeatures={setCriteriaToChosenFeatures} criteriaToFeatures={criteriaToFormattedFeatures}></CriterionSearch>}
         {props.projects
-            .filter((project, index) => fitsTheCriteria(project.criteria))
+            .filter(project => fitsTheCriteria(project.criteriaToFeatures, criteriaToChosenFeature))
             .map((project, index) => <SingularProject title={project.title} description={project.description}
-                criteria={project.criteria} image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>
+                criteriaToFeatures={project.criteriaToFeatures} image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>
             )}
 
         <br />
@@ -57,7 +30,7 @@ const ProjectList = function (props) {
 
 export default ProjectList;
 
-function initializeEmptySetOfChosenFeatures(extractedCriteria) {
+function initializeEmptyCriteriaToChosenFeature(extractedCriteria) {
     let chosenFeatures = {}
     Object.keys(extractedCriteria).forEach((criterion, index) => {
         chosenFeatures[criterion] = "";
@@ -65,41 +38,21 @@ function initializeEmptySetOfChosenFeatures(extractedCriteria) {
     return chosenFeatures
 }
 
-function extractAllCriteraAndCountTheOccurances(projects) {
-    let extractedCriteria = {}
-    projects.forEach(project => {
-        if (project.criteria === undefined) {
-            return;
+function fitsTheCriteria(projectCriteriaToFeatures, criteriaToChosenFeature) {
+    for (const criterion in criteriaToChosenFeature) {
+        if (criteriaToChosenFeature.hasOwnProperty(criterion)) {
+            let chosenFeature = criteriaToChosenFeature[criterion]
+            if (chosenFeature === "")
+                continue;
+            if (!projectCriteriaToFeatures.hasOwnProperty(criterion))
+                return false;
+            if (!projectCriteriaToFeatures[criterion].includes(getUnformatedFeature(chosenFeature)))
+                return false;
         }
-
-        Object.keys(project.criteria).forEach((criterion, index) => {
-            extractOneCriterionFromSingularProjectAndCountTheOccurances(extractedCriteria, criterion, project);
-        });
-
-    });
-
-
-    Object.keys(extractedCriteria).forEach((criterion, index) => {
-        let handledFeatures = [];
-        for (var feature in extractedCriteria[criterion]) {
-            if (extractedCriteria[criterion].hasOwnProperty(feature)) {
-                handledFeatures = handledFeatures.concat(feature + " (" + extractedCriteria[criterion][feature].toString() + ")");
-            }
-        }
-        extractedCriteria[criterion] = handledFeatures;
-    });
-    return extractedCriteria
+    }
+    return true;
 }
 
-function extractOneCriterionFromSingularProjectAndCountTheOccurances(extractedCriteria, criterion, project) {
-    if (!extractedCriteria.hasOwnProperty(criterion)) {
-        extractedCriteria[criterion] = {};
-    }
-    project.criteria[criterion].forEach(feature => {
-        if (extractedCriteria[criterion].hasOwnProperty(feature)) {
-            extractedCriteria[criterion][feature]++;
-        } else {
-            extractedCriteria[criterion][feature] = 1;
-        }
-    });
+function getUnformatedFeature(formatedFeature){
+    return formatedFeature.substr(0,formatedFeature.lastIndexOf('(')-1)
 }
