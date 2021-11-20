@@ -39,20 +39,17 @@ function initializeEmptyCriteriaToChosenFeature(extractedCriteria) {
 }
 
 function fitsTheCriteria(projectCriteriaToFeatures, criteriaToChosenFeature) {
-    for (const criterion in criteriaToChosenFeature) {
-        if (criteriaToChosenFeature.hasOwnProperty(criterion)) {
+    for (const criterion in projectCriteriaToFeatures) {
+        if (projectCriteriaToFeatures.hasOwnProperty(criterion)) {
             let chosenFeature = criteriaToChosenFeature[criterion]
-            if (chosenFeature === "")
-                continue;
-            if (!projectCriteriaToFeatures.hasOwnProperty(criterion))
-                return false;
-            if (!projectCriteriaToFeatures[criterion].includes(getUnformatedFeature(chosenFeature)))
+            let someFeatureChosen = (chosenFeature !== "");
+            if (someFeatureChosen && !projectCriteriaToFeatures[criterion].includes(getUnformatedFeature(chosenFeature)))
                 return false;
         }
     }
     return true;
 }
 
-function getUnformatedFeature(formatedFeature){
-    return formatedFeature.substr(0,formatedFeature.lastIndexOf('(')-1)
+function getUnformatedFeature(formatedFeature) {
+    return formatedFeature.substr(0, formatedFeature.lastIndexOf('(') - 1)
 }
