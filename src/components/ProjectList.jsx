@@ -14,6 +14,7 @@ const ProjectList = function (props) {
         criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(projects);
         newCriteriaToChosenFeatures = initializeEmptyCriteriaToChosenFeature(criteriaToFormattedFeatures)
     }
+    console.log(projects)
     let [criteriaToChosenFeature, setCriteriaToChosenFeatures] = useState(() => newCriteriaToChosenFeatures);
     return < div className="projectList">
         <h2 className="header">{props.title}</h2>
@@ -29,7 +30,7 @@ const ProjectList = function (props) {
                 image={loadProjectLogo(project.abreveation)} 
                 video={loadProjectVideo(project.abreveation)} 
                 key={index}> 
-                {project.content}
+                {<p dangerouslySetInnerHTML={{ __html: project.content }}></p>}
                 </SingularProject>
             )}
         <br />
