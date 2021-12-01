@@ -1,0 +1,96 @@
+[
+        {
+          "title": "The Branch Office", 
+          "description": "Game made in a week about managing workers and not letting the office fall from the branch", 
+          "abreveation":"tbo",
+          "criteriaToFeatures": {
+            "programming language": ["c#"],
+            "technologies": ["unity"],
+            "tags": ["game", "jam"],
+            "⭐": ["⭐"]
+          }, 
+          "content":"\n<p>A game made for a game jam in a week. It presents a challenge to the player, as they have to manage the workers to do their job while making sure that the office is not on the verge of falling. <br /><br />I have not only coded the game but also have drawn all the sprites and animations. <br /><br />You can check out <a href={\"https://dirakon.itch.io/the-office-branch\"}>the game</a> and see <a href={\"https://github.com/Dirakon/The-Branch-Office-Game\"}>the source code.</a></p>"
+        },
+        {
+          "title": "Mobile Continent Generator",
+           "description": "Mobile app that lets the user observe some randomly generated worlds and nations", 
+           "abreveation":"mcg",
+           "criteriaToFeatures": {
+            "programming language": ["java", "c++"],
+            "technologies": ["android"],
+            "⭐": ["⭐"],
+            "tags": ["simulation"]
+          }, 
+          "content":"<p>An Android application that generates continents, oceans, islands, seas, and rivers; splits the land and the water into regions, gives each region a terrain type, and shows it to the user, who can freely scroll through the generated world. <br /><br />Originally, the program has been written in C++, but it was later re-written to Java with additions and fixes. <br /><br />All of the code has been done by me.<br /><br />You can check out <a href={\"https://github.com/Dirakon/Mobile-Continent-Generator\"}>the source code</a> and see <a href={\" https://youtu.be/IfCc4-T-fxI \"}>my video, where I go over the generation proccess in details</a>.</p>"
+        },
+        {
+          "title": "Scion", 
+          "description": "App for programming on mobile devices with my custom visual programming language", 
+          "abreveation":"sci",
+          "criteriaToFeatures": {
+            "programming language": ["c#"],
+            "technologies": ["unity", "android"],
+            "⭐": ["⭐"]
+          }, 
+          "content":"<p>This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me.<br /><br />You can check out <a href={\"https://github.com/Dirakon/Skion\"}>the source code</a> and the <a href={\" https://youtu.be/IfCc4-T-fxI \"}>video of the proccess of making a project in Scion</a>.</p>"
+        },
+        {
+          "title": "Dialog Editor", 
+          "description": "Website for creating and experiencing dialogs with my custom dialog language", 
+          "abreveation":"de",
+          "criteriaToFeatures": {
+            "programming language": ["js"],
+            "technologies": ["reactJS"],
+            "⭐": ["⭐"]
+          }, 
+          "content":
+              "<p>Interactive dialog editor where the user can program their own dialogs using dialog writing 'scripting' language made by me.<br /><br />Supports variables, tags, if statements, and more. Includes dialog example when opening the site.<br /><br />I fully coded the website <br /><br />You can check out <a href={\"https://dirakon.github.io/Dialog-Editor/\"}>the site</a> and see <a href={\"https://github.com/Dirakon/Dialog-Editor\"}>the source code.</a></p>"
+        },
+        {
+          "title": "RTS Prototype", 
+          "description": "Implementaton of basic RTS mechanics in Unity", 
+          "abreveation":"rts_wg",
+          "criteriaToFeatures": {
+            "programming language": ["c#"],
+            "technologies": ["unity"],
+            "⭐": [" "],
+            "tags": ["game"]
+          }, 
+          "content":
+              "<p>A prototype of an RTS wargame with such mechanics being implemented as unit selection, movements, attack, abilities, a queue of orders, the fog of war, minimap, and many others.<br /><br />All the code and even 3D models are done by me.<br /><br />You can check out <a href={\"https://github.com/Dirakon/RTS-Wargame\"}>the source code.</a></p>"
+        },
+        {
+          "title": "Skeleton Deconstructor", 
+          "description": "Game made in 2 days about destroying dynamically self-constructing skeletons",  
+          "abreveation":"sd",
+          "criteriaToFeatures": {
+            "programming language": ["c#"],
+            "technologies": ["unity"],
+            "⭐": [" "],
+            "tags": ["game", "jam"]
+          }, "content":
+              "<p>A game made for a game jam in 2 days. The goal is to protect the heart for as long as possible. The skeletons dynamically construct themselves from the bones. The player can break skeletons apart, and if a lot of bones stay close enough for some time, a skeleton will assemble from them. Skeletons pick up new bones on the move.<br /><br />The big amount of bones (the amount grows) required a smart approach to find the bone groups for performance purposes (WebGL Unity build (the one I was aiming for) does not support multithreading). Not only that, I had to make bone physics myself, as it would be a bad decision performance-wise to make them all rigidbodies.<br /><br />I have fully developed the game by myself. <br /><br />You can check out <a href={\"https://dirakon.itch.io/skeleton-destructor\"}>the game</a> and see <a href={\"https://github.com/Dirakon/Skeleton-Destructor\"}>the source code.</a></p>"},
+        {
+          "title": "2D Sideview Platformer-Slasher", 
+          "description": "Game made in 2 days about revenge", 
+          "abreveation":"ps",
+          "criteriaToFeatures": {
+            "programming language": ["c#"],
+            "technologies": ["unity"],
+            "⭐": [" "],
+            "tags": ["game", "jam"]
+          }, "content":"<p>A game made for a game jam in 2 days. It has slasher and platformer controls, attacks, enemy AI that tracks the player with the A* algorithm,choices that affect the final boss battle, and the final boss itself. <br /><br />I have coded the game. The character sprite, the lore, and the voice acting were made by other people in my team. <br /><br />You can check out <a href={\"https://github.com/Dirakon/2d-Sideview-Platformer-Slash-Slasher\"}>the source code</a> and see <a href={\"https://youtu.be/jQkTkQ4bVQY\"}>the playthrough of the game</a>.</p>"
+        },
+        {
+          "title": "This website", 
+          "description": "You are observing it right now",  
+          "abreveation":"site",
+          "criteriaToFeatures": {
+            "programming language": ["js"],
+            "technologies": ["reactJS"],
+            "⭐": [" "]
+          }, 
+          "content":"<p>This website is fully developed by me <br /><br />You can check out <a href={\"https://github.com/Dirakon/Dirakon.github.io\"}>the source code.</a></p>"
+        }
+      
+]

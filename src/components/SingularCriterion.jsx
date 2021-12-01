@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './../styles/SingularCriterion.css'
-const SingularCriterion = function (props) {
+
+function SingularCriterion   (props) {
     let onChangeFunc = function (obj) {
         props.stateToChangeChosenFeatures(chosenFeatures => {
             chosenFeatures[props.criterionName] = obj.target.value;

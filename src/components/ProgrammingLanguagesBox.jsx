@@ -1,27 +1,25 @@
 import React, { useState } from "react";
+import { loadProgrammingLanguageData, loadProgrammingLanguageIcon} from "../scripts/FileLoader";
 import './../styles/ProgrammingLanguagesBox.css'
 
-let proccessedImportedLanguages = {
-    cpp: require('./../images/cpp.png'),
-    java: require('./../images/java.png'),
-    js: require('./../images/js.png'),
-    cs: require('./../images/cs.png'),
-    python: require('./../images/python.png'),
-}
 
-function convertLanguageNameToIcon(name) {
-    let formattedName = name.toLowerCase().replaceAll('+', 'p').replaceAll('#', 's')
-    if (formattedName in proccessedImportedLanguages) {
-        return <img style={{ width: "100%", height: "100%" }} src={proccessedImportedLanguages[formattedName].default}></img>
+function convertLanguageNameToIcon(programmingLanguageTag, programmingLanguagesTagToImage) {
+    if (!programmingLanguagesTagToImage.hasOwnProperty(programmingLanguageTag)){
+        return <a>{programmingLanguageTag}</a>
     }
-    return <a>{name}</a>
+    let programmingLanguageIconFileName = programmingLanguagesTagToImage[programmingLanguageTag]
+    return <img style={{ width: "100%", height: "100%" }} src={loadProgrammingLanguageIcon(programmingLanguageIconFileName)}></img>
+    
 
 }
 
 function ProgrammingLanguagesBox(props) {
+    let programmingLanguagesTagToImage = loadProgrammingLanguageData()
     return < div className="programmingLanguagesBox">
-        {props.programmingLanguages.map((programmingLanguage, index) =>
-            <div key={index} className="singularLanguage"> {convertLanguageNameToIcon(programmingLanguage)}</div>
+        {props.programmingLanguages.map((programmingLanguageTag, index) =>
+            <div key={index} className="singularLanguage"> {
+                convertLanguageNameToIcon(programmingLanguageTag,programmingLanguagesTagToImage)
+                }</div>
             )
         }
     </div>

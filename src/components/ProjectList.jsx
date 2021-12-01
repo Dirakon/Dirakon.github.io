@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import SingularProject from "./SingularProject";
 import CriterionSearch from "./CriterionSearch";
 import './../styles/ProjectList.css'
-import extractCriteriaToFormattedFeaturesFromProjects from './CriteriaExtraction'
+import extractCriteriaToFormattedFeaturesFromProjects from '../scripts/CriteriaExtraction'
+
+import {loadProjectData, loadProjectVideo,loadProjectLogo} from '../scripts/FileLoader'
 
 const ProjectList = function (props) {
+    let projects = loadProjectData()
     let criteriaToFormattedFeatures = {};
     let newCriteriaToChosenFeatures = () => { };
     if (props.hasOwnProperty("criterionSearch")) {
-        criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(props.projects);
+        criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(projects);
         newCriteriaToChosenFeatures = initializeEmptyCriteriaToChosenFeature(criteriaToFormattedFeatures)
     }
     let [criteriaToChosenFeature, setCriteriaToChosenFeatures] = useState(() => newCriteriaToChosenFeatures);
@@ -17,12 +20,18 @@ const ProjectList = function (props) {
         <br />
         {props.criterionSearch === undefined ? undefined :
             <CriterionSearch setCriteriaToChosenFeatures={setCriteriaToChosenFeatures} criteriaToFeatures={criteriaToFormattedFeatures}></CriterionSearch>}
-        {props.projects
+        {projects
             .filter(project => fitsTheCriteria(project.criteriaToFeatures, criteriaToChosenFeature))
-            .map((project, index) => <SingularProject title={project.title} description={project.description}
-                criteriaToFeatures={project.criteriaToFeatures} image={project.image} video={project.video} key={index}> {project.actual}</SingularProject>
+            .map((project, index) => <SingularProject 
+                title={project.title} 
+                description={project.description}
+                criteriaToFeatures={project.criteriaToFeatures} 
+                image={loadProjectLogo(project.abreveation)} 
+                video={loadProjectVideo(project.abreveation)} 
+                key={index}> 
+                {project.content}
+                </SingularProject>
             )}
-
         <br />
     </div>
 }
@@ -32,7 +41,7 @@ export default ProjectList;
 
 function initializeEmptyCriteriaToChosenFeature(extractedCriteria) {
     let chosenFeatures = {}
-    Object.keys(extractedCriteria).forEach((criterion, index) => {
+    Object.keys(extractedCriteria).forEach(criterion => {
         chosenFeatures[criterion] = "";
     });
     return chosenFeatures

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { loadSocialMediaData, loadSocialMediaIcon } from "../scripts/FileLoader";
 import './../styles/ContactLine.css'
 const ContactLine = function (props) {
+    let iconsToLinks = loadSocialMediaData()
     return < div className="contactLine">
-        {Object.keys(props.linksToIcons).map((link, index) => (<a href={link} key={index}>
-            <img className="contactIcon" src={props.linksToIcons[link]} />
+        {Object.keys(iconsToLinks).map((iconFileName, index) => (<a href={iconsToLinks[iconFileName]} key={index}>
+            <img className="contactIcon" src={loadSocialMediaIcon(iconFileName)} />
         </a>)
         )}
     </div>
