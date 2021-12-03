@@ -34,7 +34,7 @@ function countFeatures(extractedCriteria, projects) {
     projects.forEach(project => {
         if (project.criteriaToFeatures !== undefined) {
             Object.keys(project.criteriaToFeatures).forEach((criterion) => {
-                countFeaturesUnderSpecificCriterion(project.criteriaToFeatures[criterion], extractedCriteria,criterion)
+                countFeaturesUnderSpecificCriterion(project.criteriaToFeatures[criterion], extractedCriteria, criterion)
             })
         }
     })

@@ -7,30 +7,30 @@ const programmingLanguageTagToImageFile = require("../static_data/programming_la
 const projectList = require("../static_data/project_list.json")
 const socialMediaImageFileToUrl = require("../static_data/social_media_image_file_to_url.json")
 
-export function loadProgrammingLanguageIcon(imageFileName){
+export function loadProgrammingLanguageIcon(imageFileName) {
     return programmingLanguageIcons(`./${imageFileName}.png`).default;
 }
-export function loadSocialMediaIcon(imageFileName){
+export function loadSocialMediaIcon(imageFileName) {
     return socialMediaIcons(`./${imageFileName}.png`).default;
 }
-export function loadProjectLogo(imageFileName){
+export function loadProjectLogo(imageFileName) {
     return projectLogos(`./${imageFileName}.png`).default;
 }
 
-export function loadProjectVideo (videoFileName){
-    try{
+export function loadProjectVideo(videoFileName) {
+    try {
         return projectVideos(`./${videoFileName}.mp4`).default;
-    }catch (error){
+    } catch (error) {
         // no video found
         return undefined;
     }
 }
-export function loadProjectData(){
+export function loadProjectData() {
     return projectList;
 }
-export function loadSocialMediaData(){
+export function loadSocialMediaData() {
     return socialMediaImageFileToUrl;
 }
-export function loadProgrammingLanguageData(){
+export function loadProgrammingLanguageData() {
     return programmingLanguageTagToImageFile;
 }

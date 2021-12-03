@@ -1,8 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;   
-  -webkit-text-stroke-width:calc( var(--scaleFactor)*0.04vw);
+  box-sizing: border-box;
+  -webkit-text-stroke-width: calc(var(--scaleFactor)*0.02vw);
   -webkit-text-stroke-color: black;
 }
 
@@ -10,7 +10,7 @@
   --scaleFactor: 1;
   --bigTextSize: calc(var(--scaleFactor)*2vw);
   --mediumTextSize: calc(var(--scaleFactor)*1.75vw);
-  
+
   --smallTextSize: calc(var(--scaleFactor)*1.5vw);
   display: flex;
 }
@@ -39,17 +39,21 @@ html, body {
   margin-top: 1vw;
   font-size: calc(var(--bigTextSize)*1.5);
 }
-.aboutMeParagraph{
+
+.aboutMeParagraph {
   margin: 0 auto;
   width: fit-content;
   font-size: var(--mediumTextSize);
 }
-p{
-   color:white;
+
+p {
+  color: white;
 }
-a{
-   color:white;
+
+a {
+  color: white;
 }
-.header{
-   color:white;
+
+.header {
+  color: white;
 }
