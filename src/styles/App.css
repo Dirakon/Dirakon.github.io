@@ -1,9 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+/*  box-sizing: border-box;
   -webkit-text-stroke-width: calc(var(--scaleFactor)*0.02vw);
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: black;*/
 }
 
 :root {

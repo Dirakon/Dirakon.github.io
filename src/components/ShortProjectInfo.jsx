@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import './../styles/ShortProjectInfo.css'
 import ProgrammingLanguagesBox from "./ProgrammingLanguagesBox";
 const ShortProjectInfo = function (props) {
+    let textColor = props.textColor === undefined ? "white" : props.textColor;
     return < div className="shortProjectInfoWrapper" onClick={projectBriefClicked()}>
         <img className="projectImage" src={props.image} />
         <a className="star">{props.hasStar ? "⭐" : " "}</a>
         <div className="shortProjectInfo">
-            <strong className="projectTitle">{props.title}</strong>
+            <strong className="projectTitle" style = {{color:textColor}}>{props.title}</strong>
             <br />
-            <a className="projectDescription">{props.description}</a>
+            <a className="projectDescription" style = {{color:textColor}}>{props.description}</a>
         </div>
         <ProgrammingLanguagesBox programmingLanguages={props.programmingLanguages} />
     </div>

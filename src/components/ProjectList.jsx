@@ -4,7 +4,7 @@ import CriterionSearch from "./CriterionSearch";
 import './../styles/ProjectList.css'
 import extractCriteriaToFormattedFeaturesFromProjects from '../scripts/CriteriaExtraction'
 
-import {loadProjectData, loadProjectVideo,loadProjectLogo} from '../scripts/FileLoader'
+import { loadProjectData, loadProjectVideo, loadProjectLogo } from '../scripts/FileLoader'
 
 const ProjectList = function (props) {
     let projects = loadProjectData()
@@ -14,7 +14,6 @@ const ProjectList = function (props) {
         criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(projects);
         newCriteriaToChosenFeatures = initializeEmptyCriteriaToChosenFeature(criteriaToFormattedFeatures)
     }
-    console.log(projects)
     let [criteriaToChosenFeature, setCriteriaToChosenFeatures] = useState(() => newCriteriaToChosenFeatures);
     return < div className="projectList">
         <h2 className="header">{props.title}</h2>
@@ -23,15 +22,16 @@ const ProjectList = function (props) {
             <CriterionSearch setCriteriaToChosenFeatures={setCriteriaToChosenFeatures} criteriaToFeatures={criteriaToFormattedFeatures}></CriterionSearch>}
         {projects
             .filter(project => fitsTheCriteria(project.criteriaToFeatures, criteriaToChosenFeature))
-            .map((project, index) => <SingularProject 
-                title={project.title} 
+            .map((project, index) => <SingularProject
+                title={project.title}
                 description={project.description}
-                criteriaToFeatures={project.criteriaToFeatures} 
-                image={loadProjectLogo(project.abreveation)} 
-                video={loadProjectVideo(project.abreveation)} 
-                key={index}> 
+                shortDescriptionTextColor = {project.shortDescriptionTextColor}
+                criteriaToFeatures={project.criteriaToFeatures}
+                image={loadProjectLogo(project.abreveation)}
+                video={loadProjectVideo(project.abreveation)}
+                key={index}>
                 {<p dangerouslySetInnerHTML={{ __html: project.content }}></p>}
-                </SingularProject>
+            </SingularProject>
             )}
         <br />
     </div>
@@ -49,8 +49,11 @@ function initializeEmptyCriteriaToChosenFeature(extractedCriteria) {
 }
 
 function fitsTheCriteria(projectCriteriaToFeatures, criteriaToChosenFeature) {
-    for (const [criterion, projectFeatures] in projectCriteriaToFeatures.entries) {
-        let chosenFeature = getUnformatedFeature(criteriaToChosenFeature[criterion])
+    let projectCriteria = Object.keys(projectCriteriaToFeatures)
+    for (const index in projectCriteria) {
+        let projectCriterion = projectCriteria[index]
+        let projectFeatures = projectCriteriaToFeatures[projectCriterion]
+        let chosenFeature = getUnformatedFeature(criteriaToChosenFeature[projectCriterion])
         let isAnyFeatureChosen = (chosenFeature !== "");
         if (isAnyFeatureChosen && !projectFeatures.includes(chosenFeature))
             return false;

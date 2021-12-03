@@ -5,7 +5,7 @@ import ShortProjectInfo from "./ShortProjectInfo";
 const SingularProject = function (props) {
     const { proccessedDeafultFeatures, hasStar, programmingLanguages } = proccessCriteria(props.criteriaToFeatures);
     let obj = <div className="fullProject collapsed">
-        <ShortProjectInfo hasStar={hasStar} programmingLanguages={programmingLanguages} title={props.title} description={props.description} image={props.image} />
+        <ShortProjectInfo textColor ={props.shortDescriptionTextColor} hasStar={hasStar} programmingLanguages={programmingLanguages} title={props.title} description={props.description} image={props.image} />
         <LongProjectInfo video={props.video}>{proccessedDeafultFeatures}<br />{props.children}</LongProjectInfo>
     </div>
 
