@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.17e2d85b.chunk.css",
-    "main.js": "/static/js/main.8aa4452d.chunk.js",
-    "main.js.map": "/static/js/main.8aa4452d.chunk.js.map",
+    "main.js": "/static/js/main.48428ed1.chunk.js",
+    "main.js.map": "/static/js/main.48428ed1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.50f1a641.js",
     "runtime-main.js.map": "/static/js/runtime-main.50f1a641.js.map",
     "static/js/2.64ff57a4.chunk.js": "/static/js/2.64ff57a4.chunk.js",
@@ -12,8 +12,9 @@
     "static/js/2.64ff57a4.chunk.js.LICENSE.txt": "/static/js/2.64ff57a4.chunk.js.LICENSE.txt",
     "static/media/cpp.png": "/static/media/cpp.dc5733e2.png",
     "static/media/cs.png": "/static/media/cs.5a45dfbe.png",
-    "static/media/de.png": "/static/media/de.26a57825.png",
+    "static/media/de.png": "/static/media/de.545e1abc.png",
     "static/media/de.mp4": "/static/media/de.ee353ed9.mp4",
+    "static/media/de_old.png": "/static/media/de_old.26a57825.png",
     "static/media/github.xcf": "/static/media/github.4c3cb41f.xcf",
     "static/media/github.png": "/static/media/github.655bd013.png",
     "static/media/itch.png": "/static/media/itch.50b915b4.png",
@@ -41,6 +42,6 @@
     "static/js/runtime-main.50f1a641.js",
     "static/js/2.64ff57a4.chunk.js",
     "static/css/main.17e2d85b.chunk.css",
-    "static/js/main.8aa4452d.chunk.js"
+    "static/js/main.48428ed1.chunk.js"
   ]
 }
