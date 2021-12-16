@@ -25,12 +25,12 @@ export function loadProjectVideo(videoFileName) {
         return undefined;
     }
 }
-export function loadProjectData() {
+export function loadProjectList() {
     return projectList;
 }
-export function loadSocialMediaData() {
+export function loadSocialMediaFileNameToURLObject() {
     return socialMediaImageFileToUrl;
 }
-export function loadProgrammingLanguageData() {
+export function loadProgrammingLanguageTagToImageFileObject() {
     return programmingLanguageTagToImageFile;
 }

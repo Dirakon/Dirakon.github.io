@@ -2,9 +2,8 @@
 function extractCriteriaToFormattedFeaturesFromProjects(projects) {
     let extractedCriteria = extractCriteria(projects)
     let extractedCriteriaToFeaturesToCounts = countFeatures(extractedCriteria, projects)
-    let extractedCriteriaToCountedFeatures = formatFeaturesInCriteria(extractedCriteriaToFeaturesToCounts);
 
-    return extractedCriteriaToCountedFeatures
+    return formatFeaturesInCriteria(extractedCriteriaToFeaturesToCounts);
 }
 function extractCriteria(projects) {
     let extractedCriteria = {}

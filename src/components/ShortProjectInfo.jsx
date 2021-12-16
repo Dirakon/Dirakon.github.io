@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './../styles/ShortProjectInfo.css'
 import ProgrammingLanguagesBox from "./ProgrammingLanguagesBox";
 const ShortProjectInfo = function (props) {

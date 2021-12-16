@@ -4,12 +4,12 @@ import CriterionSearch from "./CriterionSearch";
 import './../styles/ProjectList.css'
 import extractCriteriaToFormattedFeaturesFromProjects from '../scripts/CriteriaExtraction'
 
-import { loadProjectData, loadProjectVideo, loadProjectLogo } from '../scripts/FileLoader'
+import { loadProjectList, loadProjectVideo, loadProjectLogo } from '../scripts/FileLoader'
 
 const ProjectList = function (props) {
-    let projects = loadProjectData()
+    let projects = loadProjectList()
     let criteriaToFormattedFeatures = {};
-    let newCriteriaToChosenFeatures = () => { };
+    let newCriteriaToChosenFeatures = { };
     if (props.hasOwnProperty("criterionSearch")) {
         criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(projects);
         newCriteriaToChosenFeatures = initializeEmptyCriteriaToChosenFeature(criteriaToFormattedFeatures)

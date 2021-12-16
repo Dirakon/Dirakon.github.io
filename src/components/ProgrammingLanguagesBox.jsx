@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { loadProgrammingLanguageData, loadProgrammingLanguageIcon} from "../scripts/FileLoader";
+import React from "react";
+import { loadProgrammingLanguageTagToImageFileObject, loadProgrammingLanguageIcon} from "../scripts/FileLoader";
 import './../styles/ProgrammingLanguagesBox.css'
 
 
@@ -14,7 +14,7 @@ function convertLanguageNameToIcon(programmingLanguageTag, programmingLanguagesT
 }
 
 function ProgrammingLanguagesBox(props) {
-    let programmingLanguagesTagToImage = loadProgrammingLanguageData()
+    let programmingLanguagesTagToImage = loadProgrammingLanguageTagToImageFileObject()
     return < div className="programmingLanguagesBox">
         {props.programmingLanguages.map((programmingLanguageTag, index) =>
             <div key={index} className="singularLanguage"> {

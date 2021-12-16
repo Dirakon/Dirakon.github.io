@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './../styles/CriterionSearch.css'
 import SingularCriterion from "./SingularCriterion";
 const CriterionSearch = function (props) {

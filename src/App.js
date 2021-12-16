@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import './styles/App.css'
 
@@ -7,11 +7,11 @@ import ContactLine from "./components/ContactLine";
 import ContactForm from "./components/ContactForm";
 
 
-import startResolutionCourutine from "./scripts/ResolutionCourutine";
+import startResolutionCoroutine from "./scripts/ResolutionCoroutine";
 
 function App() {
 
-  startResolutionCourutine();
+  startResolutionCoroutine();
   return (
     <div className="App">
       <h1 className="header">My portfolio</h1>

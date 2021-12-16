@@ -1,6 +1,6 @@
 
 let root;
-function startResolutionCourutine() {
+function startResolutionCoroutine() {
     root = document.querySelector(':root');
     automaticallyChangeScaleFactor()
     setInterval(automaticallyChangeScaleFactor, 1000);
@@ -23,4 +23,4 @@ function automaticallyChangeScaleFactor() {
     previousNormalizedHeightToWidthRatio = normalizedHeightToWidthRatio;
 }
 
-export default startResolutionCourutine
+export default startResolutionCoroutine

@@ -57,7 +57,7 @@
         "⭐"
       ]
     },
-    "content": "This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me. Icon design has been done by the other person in my team.<br /><br />You can check out <a href=\"https://github.com/Dirakon/Skion\">the source code</a> and the <a href=\" https://youtu.be/IfCc4-T-fxI \">video of the proccess of making a project in Scion</a>."
+    "content": "This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me. Icon design has been done by the other person in my team(GoodAndBad#2254).<br /><br />You can check out <a href=\"https://github.com/Dirakon/Skion\">the source code</a> and the <a href=\" https://youtu.be/IfCc4-T-fxI \">video of the proccess of making a project in Scion</a>."
   },
   {
     "title": "Dialog Editor",
@@ -136,7 +136,7 @@
         "jam"
       ]
     },
-    "content": "A game made for a game jam in 2 days. It has slasher and platformer controls, attacks, enemy AI that tracks the player with the A* algorithm, choices that affect the final boss battle, and the final boss itself. <br /><br />I have coded the game. The character sprite, the lore, and the voice acting were made by other people in my team. <br /><br />You can check out <a href=\"https://github.com/Dirakon/2d-Sideview-Platformer-Slash-Slasher\">the source code</a> and see <a href=\"https://youtu.be/jQkTkQ4bVQY\">the playthrough of the game</a>."
+    "content": "A game made for a game jam in 2 days. It has slasher and platformer controls, attacks, enemy AI that tracks the player with the A* algorithm, choices that affect the final boss battle, and the final boss itself. <br /><br />I have coded the game. The character sprite was drawn by my teammate (GoodAndBad#2254), while the lore, and the voice acting were made by other people in my team. <br /><br />You can check out <a href=\"https://github.com/Dirakon/2d-Sideview-Platformer-Slash-Slasher\">the source code</a> and see <a href=\"https://youtu.be/jQkTkQ4bVQY\">the playthrough of the game</a>."
   },
   {
     "title": "This website",
@@ -153,6 +153,6 @@
         " "
       ]
     },
-    "content": "This website is fully developed by me <br /><br />You can check out <a href=\"https://github.com/Dirakon/Dirakon.github.io\">the source code.</a>"
+    "content": "This website is fully developed by me <br /><br />Behind the curtains, my site contains \".json\" files that separate the data and the code. These \".json\" files also include file names of all images and videos: this way, I don't need to go into code to add more content to the site.<br /><br />You can check out <a href=\"https://github.com/Dirakon/Dirakon.github.io\">the source code.</a>"
   }
 ]
