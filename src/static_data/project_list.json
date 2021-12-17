@@ -139,6 +139,27 @@
     "content": "A game made for a game jam in 2 days. It has slasher and platformer controls, attacks, enemy AI that tracks the player with the A* algorithm, choices that affect the final boss battle, and the final boss itself. <br /><br />I have coded the game. The character sprite was drawn by my teammate (GoodAndBad#2254), while the lore, and the voice acting were made by other people in my team. <br /><br />You can check out <a href=\"https://github.com/Dirakon/2d-Sideview-Platformer-Slash-Slasher\">the source code</a> and see <a href=\"https://youtu.be/jQkTkQ4bVQY\">the playthrough of the game</a>."
   },
   {
+    "title": "The Bright Sun",
+    "description": "Game made in 2 days about boss battle with the sun",
+    "abreveation": "tbs",
+    "criteriaToFeatures": {
+      "programming language": [
+        "c#"
+      ],
+      "technologies": [
+        "unity"
+      ],
+      "⭐": [
+        " "
+      ],
+      "tags": [
+        "game",
+        "jam"
+      ]
+    },
+    "content": "A game made for a game jam in 2 days. It has first person controls and the sun the player has to battle. The sun has 4 different boss stages, each accompanied by a unqiue color theme, soundrack and boss behaviour/attacks <br /><br />I have fully developed the game by myself. <br /><br />You can check out <a href=\"https://dirakon.itch.io/the-bright-sun\">the game</a> and see <a href=\"https://github.com/Dirakon/The-Bright-Sun\">the source code</a>"
+  },
+  {
     "title": "This website",
     "description": "You are observing it right now",
     "abreveation": "site",
