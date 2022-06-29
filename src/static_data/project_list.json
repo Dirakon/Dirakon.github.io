@@ -55,6 +55,9 @@
       ],
       "⭐": [
         "⭐"
+      ],
+      "tags": [
+
       ]
     },
     "content": "This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me. Icon design has been done by the other person in my team(GoodAndBad#2254).<br /><br />You can check out <a href=\"https://github.com/Dirakon/Skion\">the source code</a> and the <a href=\" https://youtu.be/IfCc4-T-fxI \">video of the proccess of making a project in Scion</a>."
@@ -72,6 +75,9 @@
       ],
       "⭐": [
         "⭐"
+      ],
+      "tags": [
+
       ]
     },
     "content": "Interactive dialog editor where the user can program their own dialogs using dialog writing 'scripting' language made by me.<br /><br />Supports variables, tags, if statements, and more. Includes dialog example when opening the site.<br /><br />I fully coded the website <br /><br />You can check out <a href=\"https://dirakon.github.io/Dialog-Editor/\">the site</a> and see <a href=\"https://github.com/Dirakon/Dialog-Editor\">the source code.</a>"
@@ -172,6 +178,9 @@
       ],
       "⭐": [
         " "
+      ],
+      "tags": [
+
       ]
     },
     "content": "This website is fully developed by me <br /><br />Behind the curtains, my site contains \".json\" files that separate the data and the code. These \".json\" files also include file names of all images and videos: this way, I don't need to go into code to add more content to the site.<br /><br />You can check out <a href=\"https://github.com/Dirakon/Dirakon.github.io\">the source code.</a>"

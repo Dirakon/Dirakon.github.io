@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import SingularProject from "./SingularProject";
 import CriterionSearch from "./CriterionSearch";
 import './../styles/ProjectList.css'
 import extractCriteriaToFormattedFeaturesFromProjects from '../scripts/CriteriaExtraction'
 
-import { loadProjectList, loadProjectVideo, loadProjectLogo } from '../scripts/FileLoader'
+import {loadProjectList, loadProjectLogo, loadProjectVideo} from '../scripts/FileLoader'
+import {BackgroundCanvas} from "./BackgroundCanvas";
 
 const ProjectList = function (props) {
     let projects = loadProjectList()
     let criteriaToFormattedFeatures = {};
-    let newCriteriaToChosenFeatures = { };
+    let newCriteriaToChosenFeatures = {};
     if (props.hasOwnProperty("criterionSearch")) {
         criteriaToFormattedFeatures = extractCriteriaToFormattedFeaturesFromProjects(projects);
         newCriteriaToChosenFeatures = initializeEmptyCriteriaToChosenFeature(criteriaToFormattedFeatures)
@@ -17,23 +18,24 @@ const ProjectList = function (props) {
     let [criteriaToChosenFeature, setCriteriaToChosenFeatures] = useState(() => newCriteriaToChosenFeatures);
     return < div className="projectList">
         <h2 className="header">{props.title}</h2>
-        <br />
+        <br/>
         {props.criterionSearch === undefined ? undefined :
-            <CriterionSearch setCriteriaToChosenFeatures={setCriteriaToChosenFeatures} criteriaToFeatures={criteriaToFormattedFeatures}></CriterionSearch>}
+            <CriterionSearch setCriteriaToChosenFeatures={setCriteriaToChosenFeatures}
+    criteriaToFeatures={criteriaToFormattedFeatures}/>}
         {projects
             .filter(project => fitsTheCriteria(project.criteriaToFeatures, criteriaToChosenFeature))
             .map((project, index) => <SingularProject
-                title={project.title}
-                description={project.description}
-                shortDescriptionTextColor = {project.shortDescriptionTextColor}
-                criteriaToFeatures={project.criteriaToFeatures}
-                image={loadProjectLogo(project.abreveation)}
-                video={loadProjectVideo(project.abreveation)}
-                key={index}>
-                {<p dangerouslySetInnerHTML={{ __html: project.content }}></p>}
-            </SingularProject>
+                    title={project.title}
+                    description={project.description}
+                    shortDescriptionTextColor={project.shortDescriptionTextColor}
+                    criteriaToFeatures={project.criteriaToFeatures}
+                    image={loadProjectLogo(project.abreveation)}
+                    video={loadProjectVideo(project.abreveation)}
+                    key={index}>
+                    {<p dangerouslySetInnerHTML={{__html: project.content}}/>}
+                </SingularProject>
             )}
-        <br />
+        <br/>
     </div>
 }
 

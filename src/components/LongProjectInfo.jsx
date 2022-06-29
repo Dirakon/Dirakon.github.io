@@ -1,16 +1,18 @@
 import React from "react";
 import './../styles/LongProjectInfo.css'
+
 const LongProjectInfo = function (props) {
     return <div className="longProjectInfoWrapper">
         <div className="longProjectInfo">
             {
                 props.video === undefined ?
                     undefined
-                    : <video width="100%" alt="Video-showcase of the described project..." autoPlay loop muted playsInline>
+                    : <video width="100%" alt="Video-showcase of the described project..." autoPlay loop muted
+                             playsInline>
                         <source src={props.video} type="video/mp4"/>
                     </video>
             }
-            <br />
+            <br/>
             {props.children}
         </div>
     </div>

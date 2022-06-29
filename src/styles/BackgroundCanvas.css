@@ -1,0 +1,10 @@
+
+.unscrollableBackground{
+    margin-left: -6vw;
+    z-index: -1;
+    position: absolute;
+    width: 106vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

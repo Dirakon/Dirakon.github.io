@@ -1,4 +1,6 @@
 
+export let heightToWidthRatio = 1;
+
 let root;
 function startResolutionCoroutine() {
     root = document.querySelector(':root');
@@ -16,7 +18,7 @@ function clamp(value, min, max) {
 
 let previousNormalizedHeightToWidthRatio = 1;
 function automaticallyChangeScaleFactor() {
-    let heightToWidthRatio = window.innerHeight / window.innerWidth;
+    heightToWidthRatio = window.innerHeight / window.innerWidth;
     let normalizedHeightToWidthRatio = clamp(heightToWidthRatio, 1, 1.5)
     if (previousNormalizedHeightToWidthRatio !== normalizedHeightToWidthRatio)
         root.style.setProperty('--scaleFactor', normalizedHeightToWidthRatio);

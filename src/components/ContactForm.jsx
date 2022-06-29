@@ -1,22 +1,23 @@
 import React from "react";
 import './../styles/ContactForm.css'
 import * as emailjs from "emailjs-com"
+
 const ContactForm = function (props) {
     return <div className="contactForm">
         <form onSubmit={submitClicked}>
             <label className="formLabel" htmlFor="name">Name</label>
             <input className="formField" type="text" id="name" name="name"
-                placeholder="Your name.." />
+                   placeholder="Your name.."/>
 
-            <label className="formLabel" htmlFor="email">E-mail<a style={{ color: "red" }}>*</a></label>
+            <label className="formLabel" htmlFor="email">E-mail<a style={{color: "red"}}>*</a></label>
             <input className="formField" type="text" id="email" name="email"
-                placeholder="Your E-mail.." />
+                   placeholder="Your E-mail.."/>
 
             <label className="formLabel" htmlFor="subject">Subject</label>
             <textarea className="formField" id="subject" name="subject"
-                placeholder="Write something.." style={{ height: '10vw' }}></textarea>
+                      placeholder="Write something.." style={{height: '10vw'}}></textarea>
 
-            <input className="formButton" type="submit" value="Submit" />
+            <input className="formButton" type="submit" value="Submit"/>
         </form>
     </div>
 }
