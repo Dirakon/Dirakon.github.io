@@ -23,7 +23,7 @@ function generateRandomPattern() {
     const rightWall = window.innerWidth + wallOffset;
     const topWall = -wallOffset;
     const downWall = getActualHeight() + wallOffset;
-    switch (randomSide) {
+    switch (1) {
         case 0: // Left
             initialRandomPosition = [
                 leftWall,
