@@ -8,16 +8,16 @@ import ContactForm from "./components/ContactForm";
 
 
 import startResolutionCoroutine from "./scripts/ResolutionCoroutine";
-import {BackgroundCanvas} from "./components/BackgroundCanvas";
+import { BackgroundCanvas } from "./components/BackgroundCanvas";
 
 function App() {
-    const appRef = React.useRef(null);
+  const appRef = React.useRef(null);
   startResolutionCoroutine();
   return (
     <div className="App" ref={appRef}>
-        <div className={"BackgroundContainer"} >
-            <BackgroundCanvas father={appRef}/>
-        </div>
+      <div className={"BackgroundContainer"} >
+        <BackgroundCanvas father={appRef} />
+      </div>
       <h1 className="header">My portfolio</h1>
       <h2 className="header">About me</h2>
       <p className="aboutMeParagraph">
@@ -31,7 +31,7 @@ function App() {
       <ContactLine />
       <br />
       <h2 className="header">Contact me!</h2>
-      <ContactForm/>
+      <ContactForm />
     </div>
   );
 }

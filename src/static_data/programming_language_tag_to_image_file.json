@@ -3,5 +3,6 @@
     "c#": "cs",
     "java": "java",
     "js": "js",
-    "python": "python"
+    "python": "python",
+    "gdscript": "python"
 }

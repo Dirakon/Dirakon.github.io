@@ -166,6 +166,27 @@
     "content": "A game made for a game jam in 2 days. It has first person controls and the sun the player has to battle. The sun has 4 different boss stages, each accompanied by a unqiue color theme, soundrack and boss behaviour/attacks <br /><br />I have fully developed the game by myself. <br /><br />You can check out <a href=\"https://dirakon.itch.io/the-bright-sun\">the game</a> and see <a href=\"https://github.com/Dirakon/The-Bright-Sun\">the source code</a>"
   },
   {
+    "title": "Space Explorer",
+    "description": "Space exploration game, where you have to solve the rules of a small universe",
+    "abreveation": "se",
+    "criteriaToFeatures": {
+      "programming language": [
+        "gdscript"
+      ],
+      "technologies": [
+        "godot"
+      ],
+      "⭐": [
+        " "
+      ],
+      "tags": [
+        "game",
+        "jam"
+      ]
+    },
+    "content": "A game made for a game jam in 2 days. It presents a player with a ship and a small universe to explore. Art and mechanics are done by me. <br /><br />You can check out <a href=\"https://dirakon.itch.io/space-explorer\">the game</a> and see <a href=\"https://github.com/Dirakon/Space-Explorer-Game\">the source code</a>"
+  },
+  {
     "title": "This website",
     "description": "You are observing it right now",
     "abreveation": "site",
