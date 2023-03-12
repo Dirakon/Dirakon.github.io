@@ -3,8 +3,8 @@
     "title": "The Branch Office",
     "description": "Game made in a week about managing workers and not letting the office fall from the branch",
     "abreveation": "tbo",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "c#"
       ],
       "technologies": [
@@ -14,27 +14,39 @@
         "game",
         "jam"
       ],
-      "⭐": [
-        "⭐"
-      ]
+      "hasStar": true
     },
     "content": "\nA game made for a game jam in a week. It presents a challenge to the player, as they have to manage the workers to do their job while making sure that the office is not on the verge of falling. <br /><br />I have not only coded the game but also have drawn all the sprites and animations. <br /><br />You can check out <a href=\"https://dirakon.itch.io/the-office-branch\">the game</a> and see <a href=\"https://github.com/Dirakon/The-Branch-Office-Game\">the source code.</a>"
+  },
+  {
+    "title": "Message Generator DSL",
+    "description": "Domain-specific language that generates messages from source code with logic-programming-like syntax, variables, functions and conditions. ",
+    "abreveation": "mgdsl",
+    "features": {
+      "programmingLanguages": [
+        "purescript"
+      ],
+      "technologies": [
+      ],
+      "hasStar": true,
+      "tags": [
+      ]
+    },
+    "content": "You can check out <a href=\"https://github.com/Dirakon/Telegram-Message-Generator-Bot\">the usage example (telegram bot that schedules randomly generated messages)</a> and see <a href=\"https://github.com/Dirakon/Message-Generator-DSL\">the page with source code and further explanation.</a>"
   },
   {
     "title": "Mobile Continent Generator",
     "description": "Mobile app that lets the user observe some randomly generated worlds and nations",
     "abreveation": "mcg",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "java",
         "c++"
       ],
       "technologies": [
         "android"
       ],
-      "⭐": [
-        "⭐"
-      ],
+      "hasStar": true,
       "tags": [
         "simulation"
       ]
@@ -45,39 +57,33 @@
     "title": "Scion",
     "description": "App for programming on mobile devices with my custom visual programming language",
     "abreveation": "sci",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "c#"
       ],
       "technologies": [
         "unity",
         "android"
       ],
-      "⭐": [
-        "⭐"
-      ],
+      "hasStar": true,
       "tags": [
-
       ]
     },
-    "content": "This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me. Icon design has been done by the other person in my team(GoodAndBad#2254).<br /><br />You can check out <a href=\"https://github.com/Dirakon/Skion\">the source code</a> and the <a href=\" https://youtu.be/IfCc4-T-fxI \">video of the proccess of making a project in Scion</a>."
+    "content": "This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me. Icon design has been done by the other person in my team(GoodAndBad#2254)."
   },
   {
     "title": "Dialog Editor",
     "description": "Website for creating and experiencing dialogs with my custom dialog language",
     "abreveation": "de",
-    "criteriaToFeatures": {
-      "programming language": [
-        "js"
+    "features": {
+      "programmingLanguages": [
+        "javascript"
       ],
       "technologies": [
         "reactJS"
       ],
-      "⭐": [
-        "⭐"
-      ],
+      "hasStar": true,
       "tags": [
-
       ]
     },
     "content": "Interactive dialog editor where the user can program their own dialogs using dialog writing 'scripting' language made by me.<br /><br />Supports variables, tags, if statements, and more. Includes dialog example when opening the site.<br /><br />I fully coded the website <br /><br />You can check out <a href=\"https://dirakon.github.io/Dialog-Editor/\">the site</a> and see <a href=\"https://github.com/Dirakon/Dialog-Editor\">the source code.</a>"
@@ -86,16 +92,14 @@
     "title": "RTS Prototype",
     "description": "Implementaton of basic RTS mechanics in Unity",
     "abreveation": "rts_wg",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "c#"
       ],
       "technologies": [
         "unity"
       ],
-      "⭐": [
-        " "
-      ],
+      "hasStar": false,
       "tags": [
         "game"
       ]
@@ -106,16 +110,14 @@
     "title": "Skeleton Deconstructor",
     "description": "Game made in 2 days about destroying dynamically self-constructing skeletons",
     "abreveation": "sd",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "c#"
       ],
       "technologies": [
         "unity"
       ],
-      "⭐": [
-        " "
-      ],
+      "hasStar": false,
       "tags": [
         "game",
         "jam"
@@ -127,16 +129,14 @@
     "title": "2D Sideview Platformer-Slasher",
     "description": "Game made in 2 days about revenge",
     "abreveation": "ps",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "c#"
       ],
       "technologies": [
         "unity"
       ],
-      "⭐": [
-        " "
-      ],
+      "hasStar": false,
       "tags": [
         "game",
         "jam"
@@ -148,16 +148,14 @@
     "title": "The Bright Sun",
     "description": "Game made in 2 days about boss battle with the sun",
     "abreveation": "tbs",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "c#"
       ],
       "technologies": [
         "unity"
       ],
-      "⭐": [
-        " "
-      ],
+      "hasStar": false,
       "tags": [
         "game",
         "jam"
@@ -169,16 +167,14 @@
     "title": "Space Explorer",
     "description": "Space exploration game, where you have to solve the rules of a small universe",
     "abreveation": "se",
-    "criteriaToFeatures": {
-      "programming language": [
+    "features": {
+      "programmingLanguages": [
         "gdscript"
       ],
       "technologies": [
         "godot"
       ],
-      "⭐": [
-        " "
-      ],
+      "hasStar": false,
       "tags": [
         "game",
         "jam"
@@ -190,18 +186,15 @@
     "title": "This website",
     "description": "You are observing it right now",
     "abreveation": "site",
-    "criteriaToFeatures": {
-      "programming language": [
-        "js"
+    "features": {
+      "programmingLanguages": [
+        "javascript"
       ],
       "technologies": [
         "reactJS"
       ],
-      "⭐": [
-        " "
-      ],
+      "hasStar": false,
       "tags": [
-
       ]
     },
     "content": "This website is fully developed by me <br /><br />Behind the curtains, my site contains \".json\" files that separate the data and the code. These \".json\" files also include file names of all images and videos: this way, I don't need to go into code to add more content to the site.<br /><br />You can check out <a href=\"https://github.com/Dirakon/Dirakon.github.io\">the source code.</a>"

@@ -1,8 +1,9 @@
 {
-    "c++": "cpp",
-    "c#": "cs",
-    "java": "java",
-    "js": "js",
-    "python": "python",
-    "gdscript": "python"
+  "c++": "cpp",
+  "c#": "cs",
+  "java": "java",
+  "javascript": "js",
+  "python": "python",
+  "gdscript": "gdscript",
+  "purescript": "ps"
 }

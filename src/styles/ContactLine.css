@@ -1,8 +1,9 @@
-.contactIcon{
+.contactIcon {
     height: 5vw;
     margin-left: 1vw;
 }
-.contactLine{
+
+.contactLine {
     padding-top: 1vw;
     margin: 0 auto;
     width: fit-content;

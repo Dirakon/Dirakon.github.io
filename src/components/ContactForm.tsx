@@ -2,7 +2,7 @@ import React from "react";
 import './../styles/ContactForm.css'
 import * as emailjs from "emailjs-com"
 
-const ContactForm = function (props) {
+const ContactForm = function () {
     return <div className="contactForm">
         <form onSubmit={submitClicked}>
             <label className="formLabel" htmlFor="name">Name</label>
@@ -22,24 +22,29 @@ const ContactForm = function (props) {
     </div>
 }
 
-function submitClicked(event) {
+function submitClicked(event: React.SyntheticEvent): void {
     event.preventDefault()
-    if (!isEmail(event.target['email'].value)) {
+
+    const target = event.target as typeof event.target & {
+        email: { value: string };
+        reset: () => void;
+    };
+    if (!isEmail(target.email.value)) {
         return;
     }
-    const userID = process.env.REACT_APP_EMAILJS_USER_ID
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID
-    emailjs.sendForm(serviceID, templateID, event.target, userID)
+    const userID = process.env.REACT_APP_EMAILJS_USER_ID!
+    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID!
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID!
+    emailjs.sendForm(serviceID, templateID, event.target as HTMLFormElement, userID)
         .then((result) => {
             alert('email sent successfully');
         }, (error) => {
             alert('error sending email');
         });
-    event.target.reset();
+    target.reset();
 }
 
-function isEmail(email) {
+function isEmail(email: string): boolean {
     let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     return regex.test(String(email).toLowerCase());
 }

@@ -1,14 +1,14 @@
-
 export let heightToWidthRatio = 1;
 
-let root;
+let root: HTMLElement;
+
 function startResolutionCoroutine() {
-    root = document.querySelector(':root');
+    root = document.querySelector(':root')!;
     automaticallyChangeScaleFactor()
     setInterval(automaticallyChangeScaleFactor, 1000);
 }
 
-function clamp(value, min, max) {
+function clamp(value: number, min: number, max: number) {
     if (value < min)
         value = min;
     if (value > max)
@@ -17,11 +17,12 @@ function clamp(value, min, max) {
 }
 
 let previousNormalizedHeightToWidthRatio = 1;
+
 function automaticallyChangeScaleFactor() {
     heightToWidthRatio = window.innerHeight / window.innerWidth;
     let normalizedHeightToWidthRatio = clamp(heightToWidthRatio, 1, 1.5)
     if (previousNormalizedHeightToWidthRatio !== normalizedHeightToWidthRatio)
-        root.style.setProperty('--scaleFactor', normalizedHeightToWidthRatio);
+        root.style.setProperty('--scaleFactor', normalizedHeightToWidthRatio.toString());
     previousNormalizedHeightToWidthRatio = normalizedHeightToWidthRatio;
 }
 

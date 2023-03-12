@@ -1,35 +1,35 @@
- .formField {
-     font-size: var(--mediumTextSize);
-     
-     width: 100%;
-     padding: 12px;
-     border: 1px solid #ccc;
-     border-radius: 4px;
-     margin-top: 6px;
-     margin-bottom: 16px;
-     resize: vertical;
- }
+.formField {
+    font-size: var(--mediumTextSize);
 
- .formLabel {
-     color:white;
-     font-size: var(--bigTextSize);
- }
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
 
- .formButton {
-     padding: 12px 20px;
-     border: none;
-     border-radius: 4px;
-     font-size: var(--bigTextSize);
-     cursor: pointer;
- }
+.formLabel {
+    color: white;
+    font-size: var(--bigTextSize);
+}
 
- .formButton:hover {
-     background-color: white;
- }
+.formButton {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: var(--bigTextSize);
+    cursor: pointer;
+}
 
- .contactForm {
-     width: 80%;
-     margin: 0 auto;
-     border-radius: 5px;
-     padding: 20px;
- }
+.formButton:hover {
+    background-color: white;
+}
+
+.contactForm {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 20px;
+}

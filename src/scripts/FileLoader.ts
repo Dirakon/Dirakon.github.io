@@ -9,20 +9,23 @@ const projectList = require("../static_data/project_list.json")
 const socialMediaImageFileToUrl = require("../static_data/social_media_image_file_to_url.json")
 const canvasSpriteToUrl = require("../static_data/canvas_sprite_to_image_file.json")
 
-export function loadProgrammingLanguageIcon(imageFileName) {
+export function loadProgrammingLanguageIcon(imageFileName: string): string | undefined {
     return programmingLanguageIcons(`./${imageFileName}.png`);
 }
-export function loadSocialMediaIcon(imageFileName) {
+
+export function loadSocialMediaIcon(imageFileName: string): string | undefined {
     return socialMediaIcons(`./${imageFileName}.png`);
 }
-export function loadProjectLogo(imageFileName) {
+
+export function loadProjectLogo(imageFileName: string): string | undefined {
     return projectLogos(`./${imageFileName}.png`);
 }
-export function loadCanvasSprite() {
+
+export function loadCanvasSprite(): string | null {
     return canvasSprites(`./ShipInFlight.png`);
 }
 
-export function loadProjectVideo(videoFileName) {
+export function loadProjectVideo(videoFileName: string): undefined | string {
     try {
         return projectVideos(`./${videoFileName}.mp4`);
     } catch (error) {
@@ -30,12 +33,19 @@ export function loadProjectVideo(videoFileName) {
         return undefined;
     }
 }
+
 export function loadProjectList() {
     return projectList;
 }
-export function loadSocialMediaFileNameToURLObject() {
-    return socialMediaImageFileToUrl;
+
+export function socialMediaImagePathToUrl(imagePath: string): string | undefined {
+    return socialMediaImageFileToUrl[imagePath]
 }
-export function loadProgrammingLanguageTagToImageFileObject() {
-    return programmingLanguageTagToImageFile;
+
+export function getAllSocialMediaImagePaths(): Array<string> {
+    return Array.from(new Map<string, string>(Object.entries(socialMediaImageFileToUrl)).keys())
+}
+
+export function programmingLanguageTagToImageFileObject(programmingLanguageTag: string): string | null {
+    return programmingLanguageTagToImageFile[programmingLanguageTag];
 }

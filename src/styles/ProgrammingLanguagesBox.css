@@ -1,15 +1,15 @@
 .programmingLanguagesBox {
-  flex-direction: column;
-  flex: 1;
-  z-index: 1;
-  display: flex;
-  width: fit-content;
-  min-width: fit-content;
-  justify-content: space-around;
+    flex-direction: column;
+    flex: 1;
+    z-index: 1;
+    display: flex;
+    width: fit-content;
+    min-width: fit-content;
+    justify-content: space-around;
 }
 
 .singularLanguage {
-  height: calc(var(--scaleFactor)*2.5vw);
-  width: fit-content;
-  overflow: hidden;
+    height: calc(var(--scaleFactor) * 2.5vw);
+    width: fit-content;
+    overflow: hidden;
 }

@@ -9,6 +9,8 @@
 .spago
 .psci_modules
 output
+*.js
+!index.js
 
 # dependencies
 /node_modules
@@ -31,3 +33,4 @@ output
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/src/scripts/ResolutionCoroutine.js

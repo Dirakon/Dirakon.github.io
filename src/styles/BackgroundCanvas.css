@@ -1,5 +1,5 @@
 
-.unscrollableBackground{
+.unscrollableBackground {
     z-index: -1;
     position: absolute;
     width: 100vw;

@@ -3,53 +3,55 @@ import './../styles/BackgroundCanvas.css'
 import {loadCanvasSprite} from "../scripts/FileLoader";
 
 let frame = 0;
-let getActualHeight;
+let getActualHeight: () => number;
 const SCALE = 1;
 const OFFSET = 80;
 let shipImage = new Image();
-let initialHeight = null;
+let initialHeight: number;
 
-let currentPattern = null;
+type Position = { x: number, y: number };
+type MovePattern = { startingFrame: number; initialPosition: Position; moveFunction: (time: number) => Position };
+let currentPattern: MovePattern | null = null;
 
-function randomRangeF(min, max) {
+function randomRangeF(min: number, max: number): number {
     return Math.random() * (max - min) + min
 }
 
-function generateRandomPattern() {
-    let initialRandomPosition = null;
+function generateRandomPattern(): MovePattern {
+    let initialRandomPosition: Position;
     let randomSide = Math.round(Math.random() * 3);
     const wallOffset = 200;
     const leftWall = -wallOffset;
     const rightWall = window.innerWidth + wallOffset;
     const topWall = -wallOffset;
     const downWall = getActualHeight() + wallOffset;
-    switch (1) {
+    switch (randomSide) {
         case 0: // Left
-            initialRandomPosition = [
-                leftWall,
-                randomRangeF(topWall, downWall)
-            ]
+            initialRandomPosition = {
+                x: leftWall,
+                y: randomRangeF(topWall, downWall)
+            }
             break;
         case 1: // Right
-            initialRandomPosition = [
-                rightWall,
-                randomRangeF(topWall, downWall)
-            ]
+            initialRandomPosition = {
+                x: rightWall,
+                y: randomRangeF(topWall, downWall)
+            }
             break;
         case 2: // Top
-            initialRandomPosition = [
-                randomRangeF(leftWall, rightWall),
-                topWall
-            ]
+            initialRandomPosition = {
+                x: randomRangeF(leftWall, rightWall),
+                y: topWall
+            }
             break;
         case 3: // Down
-            initialRandomPosition = [
-                randomRangeF(leftWall, rightWall),
-                downWall
-            ]
+            initialRandomPosition = {
+                x: randomRangeF(leftWall, rightWall),
+                y: downWall
+            }
             break;
         default:
-            console.log(randomSide)
+            throw new Error("Trying to generate pattern for side: " + randomSide)
     }
     return {
         startingFrame: frame,
@@ -58,7 +60,7 @@ function generateRandomPattern() {
     }
 }
 
-function generateRandomMoveFunction() {
+function generateRandomMoveFunction(): (time: number) => Position {
     let [linearOne, linearTwo] = normalized([randomRangeF(-10, 10), randomRangeF(-10, 10)])
     let speed = randomRangeF(5, 15)
     linearOne *= speed
@@ -69,16 +71,18 @@ function generateRandomMoveFunction() {
 
     let quadraticMult1 = randomRangeF(-0.05, 0.05), quadraticMult2 = randomRangeF(-0.05, 0.05)
 
-    return (t) => [
-        t * t * quadraticMult1 + t * linearOne + cosMult * Math.cos(t / inCosDiv),
-        t * t * quadraticMult2 + t * linearTwo + sinMult * Math.cos(t / inSinDiv)
-    ]
+    return (time: number) => {
+        return {
+            x: time * time * quadraticMult1 + time * linearOne + cosMult * Math.cos(time / inCosDiv),
+            y: time * time * quadraticMult2 + time * linearTwo + sinMult * Math.cos(time / inSinDiv)
+        }
+    }
 }
 
-function drawPattern(canvasRef) {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let pattern = currentPattern;
+function drawPattern(canvasRef: React.MutableRefObject<null | HTMLCanvasElement>) {
+    const canvas: HTMLCanvasElement = canvasRef.current!;
+    const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
+    let pattern: MovePattern = currentPattern!;
     let moveFunction = pattern.moveFunction;
     let initialPosition = pattern.initialPosition;
     let startingFrame = pattern.startingFrame;
@@ -96,7 +100,7 @@ function drawPattern(canvasRef) {
 const disappearanceThreshold = 200
 
 function currentlyInBounds() {
-    let pattern = currentPattern;
+    let pattern: MovePattern = currentPattern!;
     let moveFunction = pattern.moveFunction;
     let initialPosition = pattern.initialPosition;
     let startingFrame = pattern.startingFrame;
@@ -115,7 +119,7 @@ function currentlyInBounds() {
     return true;
 }
 
-function draw(ctx, location, angle) {
+function draw(ctx: CanvasRenderingContext2D, location: Position, angle: number) {
     ctx.fillStyle = 'deepskyblue';
     ctx.shadowColor = 'dodgerblue';
     ctx.shadowBlur = 2;
@@ -127,29 +131,29 @@ function draw(ctx, location, angle) {
     ctx.restore();
 }
 
-function normalized(vec2D) {
+function normalized(vec2D: number[]) {
     let directionLength = Math.sqrt(vec2D[0] * vec2D[0] + vec2D[1] * vec2D[1])
     return [vec2D[0] / directionLength, vec2D[1] / directionLength]
 }
 
-function angleFromDirection(vec2D) {
+function angleFromDirection(vec2D: number[]) {
     let sign = vec2D[1] < 0 ? (-1) : 1;
     let angle = sign * Math.acos(vec2D[0])
     return angle;
 }
 
-function calculatePositionAndRotation(initialFrame, currentFrame, initialPosition, moveFunction) {
+function calculatePositionAndRotation(initialFrame: number, currentFrame: number, initialPosition: Position, moveFunction: (arg0: number) => Position): [Position, number] {
     //  direction = normalized(direction)
     let oldMovement = moveFunction(currentFrame - 1 - initialFrame)
     let newMovement = moveFunction(currentFrame - initialFrame)
     let oldPosition = [
-        initialPosition[0] + (oldMovement[0]),
-        initialPosition[1] + (oldMovement[1])
+        initialPosition.x + (oldMovement.x),
+        initialPosition.y + (oldMovement.y)
     ]
     let newPosition =
         [
-            initialPosition[0] + (newMovement[0]),
-            initialPosition[1] + (newMovement[1])
+            initialPosition.x + (newMovement.x),
+            initialPosition.y + (newMovement.y)
         ]
     let direction = normalized(
         [
@@ -160,7 +164,7 @@ function calculatePositionAndRotation(initialFrame, currentFrame, initialPositio
     return [{x: newPosition[0], y: newPosition[1]}, angleFromDirection(direction)]
 }
 
-export function BackgroundCanvas(props) {
+export function BackgroundCanvas(props: { father: { current: { clientHeight: number; } | null; }; }) {
     const canvasRef = React.useRef(null);
     const [time, setTime] = useState(Date.now());
     getActualHeight = () => {
@@ -173,14 +177,13 @@ export function BackgroundCanvas(props) {
     }
     React.useEffect(() => {
         if (shipImage.src === "")
-            shipImage.src = loadCanvasSprite();
+            shipImage.src = loadCanvasSprite()!;
         if (currentPattern == null) {
             currentPattern = generateRandomPattern();
         }
         drawPattern(canvasRef)
         if (!currentlyInBounds()) {
             currentPattern = null;
-            console.log("pattern finished, seeking new on")
         }
     });
 
