@@ -1,5 +1,6 @@
 import React from "react";
 import './../styles/ContactForm.css'
+// @ts-ignore
 import * as emailjs from "emailjs-com"
 
 const ContactForm = function () {
@@ -36,9 +37,9 @@ function submitClicked(event: React.SyntheticEvent): void {
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID!
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID!
     emailjs.sendForm(serviceID, templateID, event.target as HTMLFormElement, userID)
-        .then((result) => {
+        .then(() => {
             alert('email sent successfully');
-        }, (error) => {
+        }, () => {
             alert('error sending email');
         });
     target.reset();
