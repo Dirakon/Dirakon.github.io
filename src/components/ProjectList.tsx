@@ -28,7 +28,7 @@ const ProjectList = function (props: PropsWithoutRef<{ title: string, criterionS
                     image={loadProjectLogo(project.abreveation)}
                     video={loadProjectVideo(project.abreveation)}
                     features={project.features}
-                    key={index}>
+                    key={project.abreveation}>
                     {<p dangerouslySetInnerHTML={{__html: project.content}}/>}
                 </SingularProject>
             )}
@@ -45,15 +45,15 @@ function createVisibleFeatureSets(allProjects: Project[]): VisibleFeatureSet[] {
     const uniqueProgrammingLanguages = removeDuplicates(allProjects.flatMap(project => project.features.programmingLanguages))
     const uniqueTechnologies = removeDuplicates(allProjects.flatMap(project => project.features.technologies))
 
-    const getFeatureWithoutProjectCount = (featureWithProjectCount: string) =>featureWithProjectCount.lastIndexOf("(") == -1 ?
-        null: featureWithProjectCount.substring(0, featureWithProjectCount.lastIndexOf("(") - 1)
+    const getFeatureWithoutProjectCount = (featureWithProjectCount: string) => featureWithProjectCount.lastIndexOf("(") == -1 ?
+        null : featureWithProjectCount.substring(0, featureWithProjectCount.lastIndexOf("(") - 1)
 
     return [
         {
             name: "programming languages",
             settableOptions: uniqueProgrammingLanguages.map(language => language + " (" + allProjects.filter(project => project.features.programmingLanguages.includes(language)).length + ")"),
             setFeatures: (chosenFeatures, featureWithProjectCount) => {
-                chosenFeatures.programmingLanguage =  getFeatureWithoutProjectCount(featureWithProjectCount)
+                chosenFeatures.programmingLanguage = getFeatureWithoutProjectCount(featureWithProjectCount)
                 return chosenFeatures;
             }
         },
@@ -75,7 +75,7 @@ function createVisibleFeatureSets(allProjects: Project[]): VisibleFeatureSet[] {
         },
         {
             name: "star",
-            settableOptions: uniqueStarStatuses.map(hasStar => (hasStar?"⭐":"") + " (" + allProjects.filter(project => project.features.hasStar == hasStar).length + ")"),
+            settableOptions: uniqueStarStatuses.map(hasStar => (hasStar ? "⭐" : "") + " (" + allProjects.filter(project => project.features.hasStar == hasStar).length + ")"),
             setFeatures: (chosenFeatures, featureWithProjectCount) => {
                 chosenFeatures.hasStar = featureWithProjectCount == "" ? null : Boolean(getFeatureWithoutProjectCount(featureWithProjectCount))
                 return chosenFeatures;
