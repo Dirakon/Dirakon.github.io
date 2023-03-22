@@ -11,7 +11,7 @@
     border-color: black;
     border-left-width: 2vw;
     border-right-width: 2vw;
-    border-bottom: -width 2vw;
+    border-bottom: 2vw;
     border: calc(var(--scaleFactor) * 0.5vw) solid black;
     background-color: rgb(71, 61, 61);
     background-color: rgba(0, 0, 0, 0.4);
