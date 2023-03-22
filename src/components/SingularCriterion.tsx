@@ -2,7 +2,14 @@ import React, {ChangeEvent} from "react";
 import './../styles/SingularCriterion.css'
 import {ChosenFeatures} from "./ProjectList";
 
-function SingularCriterion(props: { stateToChangeChosenFeatures: React.Dispatch<React.SetStateAction<ChosenFeatures>>; criterionName: string; setFeature: (chosenFeatures: ChosenFeatures, chosenFeature: string) => ChosenFeatures; features: string[]; }) {
+export interface SingularCriterionProps {
+    stateToChangeChosenFeatures: React.Dispatch<React.SetStateAction<ChosenFeatures>>;
+    criterionName: string;
+    setFeature: (chosenFeatures: ChosenFeatures, chosenFeature: string) => ChosenFeatures;
+    features: string[];
+}
+
+function SingularCriterion(props: SingularCriterionProps) {
     let onChangeFunc = function (event: ChangeEvent) {
         const target = event.target as typeof event.target & {
             value: string

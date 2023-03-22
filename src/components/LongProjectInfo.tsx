@@ -1,7 +1,7 @@
-import React from "react";
+import React, {PropsWithChildren} from "react";
 import './../styles/LongProjectInfo.css'
 
-const LongProjectInfo = function (props: { video: string | undefined; children: any }) {
+const LongProjectInfo = function (props: PropsWithChildren<{ video: string | undefined; }>) {
     return <div className="longProjectInfoWrapper">
         <div className="longProjectInfo">
             {

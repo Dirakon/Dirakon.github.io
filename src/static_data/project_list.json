@@ -30,6 +30,7 @@
       ],
       "hasStar": true,
       "tags": [
+        "DSL"
       ]
     },
     "content": "You can check out <a href=\"https://github.com/Dirakon/Telegram-Message-Generator-Bot\">the usage example (telegram bot that schedules randomly generated messages)</a> and see <a href=\"https://github.com/Dirakon/Message-Generator-DSL\">the page with source code and further explanation.</a>"
@@ -67,6 +68,7 @@
       ],
       "hasStar": true,
       "tags": [
+        "DSL"
       ]
     },
     "content": "This android app implements a visual programming language that supports such concepts as objects, images/sprites, 3D-space, click/hold events, android notifications, camera movement/zoom, dynamically typed variables, lists, if statements, complex math, function calls, and much more. <br /><br />In the video above you can see the implementation of Tic-Tac-Toe.<br /><br />All of the code has been done by me. Icon design has been done by the other person in my team(GoodAndBad#2254)."
@@ -84,6 +86,7 @@
       ],
       "hasStar": false,
       "tags": [
+        "DSL"
       ]
     },
     "content": "Interactive dialog editor where the user can program their own dialogs using dialog writing 'scripting' language made by me.<br /><br />Supports variables, tags, if statements, and more. Includes dialog example when opening the site.<br /><br />I fully coded the website <br /><br />You can check out <a href=\"https://dirakon.github.io/Dialog-Editor/\">the site</a> and see <a href=\"https://github.com/Dirakon/Dialog-Editor\">the source code.</a>"

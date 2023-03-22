@@ -4,8 +4,10 @@ import CriterionSearch, {VisibleFeatureSet} from "./CriterionSearch";
 import './../styles/ProjectList.css'
 
 import {loadProjectList, loadProjectLogo, loadProjectVideo} from '../scripts/FileLoader'
+import {removeDuplicates} from "../scripts/Utils";
 
-const ProjectList = function (props: PropsWithoutRef<{ title: string, criterionSearch: undefined | any }>) {
+export type ProjectListProps = PropsWithoutRef<{ title: string, criterionSearch: undefined | any }>;
+const ProjectList = function (props: ProjectListProps) {
     let projects = loadProjectList() as Project[]
     let chosenFeatures: ChosenFeatures = new class implements ChosenFeatures {
         hasStar = null;
@@ -22,7 +24,7 @@ const ProjectList = function (props: PropsWithoutRef<{ title: string, criterionS
                              visibleFeaturesSets={createVisibleFeatureSets(projects)}/>}
         {projects
             .filter(project => projectsMeetsCriteria(project, getChosenFeatures))
-            .map((project, index) => <SingularProject
+            .map((project) => <SingularProject
                     title={project.title}
                     description={project.description}
                     image={loadProjectLogo(project.abreveation)}
@@ -84,15 +86,6 @@ function createVisibleFeatureSets(allProjects: Project[]): VisibleFeatureSet[] {
     ]
 }
 
-const groupBy = <T, K extends keyof any>(arr: T[], key: (i: T) => K) =>
-    arr.reduce((groups, item) => {
-        (groups[key(item)] ||= []).push(item);
-        return groups;
-    }, {} as Record<K, T[]>);
-
-function removeDuplicates<T>(array: T[]): T[] {
-    return [...new Set(array)];
-}
 
 export interface Project {
     title: string;
@@ -101,6 +94,14 @@ export interface Project {
     features: Features;
     content: string;
 }
+
+function projectsMeetsCriteria(project: Project, criteria: ChosenFeatures) {
+    return (criteria.programmingLanguage == null || project.features.programmingLanguages.includes(criteria.programmingLanguage)) &&
+        (criteria.technology == null || project.features.technologies.includes(criteria.technology)) &&
+        (criteria.tag == null || project.features.tags.includes(criteria.tag)) &&
+        (criteria.hasStar == null || project.features.hasStar == criteria.hasStar)
+}
+
 
 export interface Features {
     programmingLanguages: string[];
@@ -117,11 +118,4 @@ export interface ChosenFeatures {
     hasStar: boolean | null;
 
 
-}
-
-function projectsMeetsCriteria(project: Project, criteria: ChosenFeatures) {
-    return (criteria.programmingLanguage == null || project.features.programmingLanguages.includes(criteria.programmingLanguage)) &&
-        (criteria.technology == null || project.features.technologies.includes(criteria.technology)) &&
-        (criteria.tag == null || project.features.tags.includes(criteria.tag)) &&
-        (criteria.hasStar == null || project.features.hasStar == criteria.hasStar)
 }

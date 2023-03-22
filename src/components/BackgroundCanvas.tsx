@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './../styles/BackgroundCanvas.css'
 import {loadCanvasSprite} from "../scripts/FileLoader";
+import {angleFromDirection, normalized, randomRangeF} from "../scripts/Utils";
 
 let frame = 0;
 let getActualHeight: () => number;
@@ -13,9 +14,6 @@ type Position = { x: number, y: number };
 type MovePattern = { startingFrame: number; initialPosition: Position; moveFunction: (time: number) => Position };
 let currentPattern: MovePattern | null = null;
 
-function randomRangeF(min: number, max: number): number {
-    return Math.random() * (max - min) + min
-}
 
 function generateRandomPattern(): MovePattern {
     let initialRandomPosition: Position;
@@ -104,7 +102,7 @@ function currentlyInBounds() {
     let moveFunction = pattern.moveFunction;
     let initialPosition = pattern.initialPosition;
     let startingFrame = pattern.startingFrame;
-    let [{x, y}, angle] = calculatePositionAndRotation(
+    let [{x, y}] = calculatePositionAndRotation(
         startingFrame,
         frame,
         initialPosition,
@@ -131,16 +129,6 @@ function draw(ctx: CanvasRenderingContext2D, location: Position, angle: number) 
     ctx.restore();
 }
 
-function normalized(vec2D: number[]) {
-    let directionLength = Math.sqrt(vec2D[0] * vec2D[0] + vec2D[1] * vec2D[1])
-    return [vec2D[0] / directionLength, vec2D[1] / directionLength]
-}
-
-function angleFromDirection(vec2D: number[]) {
-    let sign = vec2D[1] < 0 ? (-1) : 1;
-    let angle = sign * Math.acos(vec2D[0])
-    return angle;
-}
 
 function calculatePositionAndRotation(initialFrame: number, currentFrame: number, initialPosition: Position, moveFunction: (arg0: number) => Position): [Position, number] {
     //  direction = normalized(direction)

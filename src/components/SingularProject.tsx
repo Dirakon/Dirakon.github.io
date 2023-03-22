@@ -4,8 +4,10 @@ import LongProjectInfo from "./LongProjectInfo";
 import ShortProjectInfo from "./ShortProjectInfo";
 import {Features} from "./ProjectList";
 
-const SingularProject = function (props: PropsWithChildren<{ features: Features, video: string | undefined, title: string, description: string, image: string | undefined }>) {
-    const visualizedTags = visualizeTags(props.features.tags)
+export type SingularProjectProps = PropsWithChildren<{ features: Features, video: string | undefined, title: string, description: string, image: string | undefined }>;
+
+const SingularProject = function (props: SingularProjectProps) {
+    const visualizedTags = visualizeKeywords(props.features.tags.concat(props.features.technologies))
     return <div className="fullProject collapsed">
         <ShortProjectInfo hasStar={props.features.hasStar}
                           programmingLanguages={props.features.programmingLanguages} title={props.title}
@@ -16,7 +18,7 @@ const SingularProject = function (props: PropsWithChildren<{ features: Features,
 
 const startingIndex = 100;
 
-function visualizeTags(tags: string[]) {
+function visualizeKeywords(tags: string[]) {
     let processedTags = tags.flatMap((tag, index) => [<a key={startingIndex + index * 2}
                                                          className={"featureTag"}>{tag}</a>,
         <a key={startingIndex + index * 2 + 1}>, </a>]);
