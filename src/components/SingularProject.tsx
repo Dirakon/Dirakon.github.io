@@ -4,7 +4,13 @@ import LongProjectInfo from "./LongProjectInfo";
 import ShortProjectInfo from "./ShortProjectInfo";
 import {Features} from "./ProjectList";
 
-export type SingularProjectProps = PropsWithChildren<{ features: Features, video: string | undefined, title: string, description: string, image: string | undefined }>;
+export type SingularProjectProps = PropsWithChildren<{
+    features: Features,
+    video: string | undefined,
+    title: string,
+    description: string,
+    image: string | undefined
+}>;
 
 const SingularProject = function (props: SingularProjectProps) {
     const visualizedTags = visualizeKeywords(props.features.tags.concat(props.features.technologies))

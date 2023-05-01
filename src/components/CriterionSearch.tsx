@@ -3,7 +3,10 @@ import './../styles/CriterionSearch.css'
 import SingularCriterion from "./SingularCriterion";
 import {ChosenFeatures} from "./ProjectList";
 
-export type CriterionSearchProps = { visibleFeaturesSets: VisibleFeatureSet[]; setChosenFeatures: React.Dispatch<React.SetStateAction<ChosenFeatures>> };
+export type CriterionSearchProps = {
+    visibleFeaturesSets: VisibleFeatureSet[];
+    setChosenFeatures: React.Dispatch<React.SetStateAction<ChosenFeatures>>
+};
 const CriterionSearch = function (props: CriterionSearchProps) {
     return < div className="criterionSearch">
         {props.visibleFeaturesSets.map((featureSet, index) => <SingularCriterion key={index}
